@@ -1,0 +1,102 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+}
+
+
+
+
+/************************************************ min-width: 1400px *********************************************************/
+@media (min-width: 1400px) {
+    .med_search_page .card .card-body {
+        width: calc(100% - 25%);
+    }
+
+}
+
+/************************************************ min-width: 992px *********************************************************/
+@media (min-width: 992px) {}
+
+
+
+
+/************************************************ (min-width: 1200px) and (max-width: 1400px) *********************************************************/
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .med_search_page .card .card-body {
+        width: calc(100% - 25%);
+    }
+
+}
+
+
+
+/************************************************ max-width: 1200px *********************************************************/
+@media (max-width: 1200px) {
+    .med_search_page .card {
+        width: 85% !important;
+    }
+
+    .med_search_page .card .card-body {
+        width: calc(100% - 20%);
+    }
+}
+
+
+
+
+
+/************************************************ max-width: 992px *********************************************************/
+@media (max-width: 992px) {
+     
+}
+
+
+
+
+/************************************************ max-width: 856px *********************************************************/
+@media (max-width: 856px) {
+    .login_main_content {
+        width: calc(100% - 30px);
+    }
+
+    .forgot_password_container {
+        width: calc(100% - 30px);
+        padding: 5rem 2rem;
+    }
+}
+
+/************************************************ max-width: 786px *********************************************************/
+@media (max-width: 786px) {
+    .med_search_page .card {
+        width: 90% !important;
+    }
+
+    .med_search_page .card .card-body {
+        width: calc(100% - 10%);
+    }
+}
+
+
+/************************************************ max-width: 856px *********************************************************/
+@media (max-width: 586px) {
+    .professional_body {
+        width: 95%;
+    }
+
+    .med_search_page .card {
+        width: 95% !important;
+    }
+
+    .med_search_page .card .card-body {
+        width: calc(100% - 5%);
+    }
+}

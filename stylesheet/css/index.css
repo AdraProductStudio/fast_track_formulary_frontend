@@ -1,0 +1,484 @@
+/* login container  */
+
+.form-control {
+    padding: 1rem .7rem !important;
+}
+
+.sign_layout_left_container input::placeholder,
+.sign_layout_left_container .normal_select-dropdown-select-input::placeholder,
+.custom_input_placeholder input::placeholder,
+.custom_input_placeholder .normal_select-dropdown-select-input::placeholder {
+    color: #1F7A8D !important;
+    font-size: 13px !important;
+}
+
+input::placeholder {
+    font-size: .9rem;
+    color: rgba(128, 128, 128, 0.562) !important;
+}
+
+.text_auth_input_label {
+    color: var(--login-label-color);
+    font-weight: 600;
+    font-size: clamp(15px, 1.5vw, 17px);
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+
+/* Input functions styles  */
+.custom_container .special-label {
+    position: static !important;
+    color: #1E75BB !important;
+    font-size: 17px !important;
+    padding: 0 !important;
+    font-weight: 600;
+}
+
+.react-tel-input .special-label::after {
+    color: #1E75BB !important;
+}
+
+.custom_flag_btn {
+    top: 30% !important;
+}
+
+.professional_phone_input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.professional_phone_input {
+    border: 1px solid #dee2e6 !important;
+    width: 100% !important;
+    padding-left: 3rem !important;
+}
+
+.professional_phone_input:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #007bff;
+}
+
+.professional_signup_location {
+    padding: 1rem .7rem;
+    width: 100%;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    background: transparent;
+    color: black;
+}
+
+.professional_signup_location:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid #dee2e6 !important;
+}
+
+.country-list.custom_dropdown .search-box {
+    background: transparent !important;
+    color: black !important;
+}
+
+.login_react_dropdown_select.react-dropdown-select {
+    border-color: #dee2e6;
+    padding: 1rem .6rem !important;
+    margin-top: .3rem;
+    border-radius: 7px !important;
+}
+
+.login_react_dropdown_select .react-dropdown-select-input {
+    color: black;
+}
+
+.button_design_select {
+    padding: .8rem;
+    border: 1px solid #D2D2D2;
+    color: var(--auth-input-label-color);
+    border-radius: 22px;
+    text-align: center;
+}
+
+.custom_button_design_select {
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.custom_button_design_select.active {
+    background-color: #1e75bb;
+    color: #ffffff;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------------------------- */
+
+
+
+/*                                                   forgot page                          */
+.forgot_password_header_container {
+    height: 10%;
+    display: grid;
+    place-items: center;
+}
+
+.forgot_password_body_container {
+    height: 90%;
+    display: grid;
+    place-items: center;
+}
+
+.forgot_password_container {
+    width: 550px;
+    padding: 5rem 3rem;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+
+
+/*                                                   reset page                          */
+.reset_password_layout {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.reset_password_side_one_container {
+    width: 780px;
+    max-width: 780px;
+    flex-shrink: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.reset_password_side_one_container img {
+    object-fit: cover;
+}
+
+.reset_password_header_container {
+    height: 10%;
+    display: grid;
+    place-items: center;
+}
+
+.reset_password_body_container {
+    height: 90%;
+    display: grid;
+    place-items: center;
+}
+
+.reset_password_container {
+    width: 600px;
+    padding: 5rem 3rem;
+    border-radius: 6px;
+    border: none;
+}
+
+
+/********************************************************* notification dropdown *********************************************************/
+
+.notification_dropdown_card {
+    position: fixed;
+    top: 60px;
+    right: 60px;
+    z-index: 10;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s ease-in-out;
+}
+
+.notification_dropdown_card.active {
+    opacity: 1;
+    width: 360px;
+    height: 450px;
+    visibility: visible;
+}
+
+.notification_dropdown_card .card-header {
+    background-color: var(--notification-header-bg-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.notification_dropdown_card .card-body {
+    overflow: auto;
+}
+
+.clear_all_button {
+    font-size: .8rem;
+}
+
+.notification_item {
+    border-bottom: 1px solid #dad7d7;
+}
+
+.notification_content p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #595959;
+}
+
+.notify_image_glow {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.notification_content_glow p {
+    width: 100%;
+    height: 80px;
+}
+
+.notification_date_glow {
+    width: 30%;
+    height: 30px;
+}
+
+
+/************************************************ Maintanance mode *********************************************************/
+.maintanance_mode_container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background-color: #ffedd5;
+}
+
+
+/************************************************ Main page layout *********************************************************/
+.main_layout_resolution {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.main_layout_resolution::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: url('../../public/image/med_search_layout_bg.png');
+    background-color: #2567E8;
+    height: 350px;
+    z-index: -1;
+}
+
+.main_layout_header_resolution {
+    height: 105px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.main_layout_body_resolution {
+    height: calc(100% - 105px);
+    padding: 1.5rem auto;
+    overflow: auto;
+}
+
+
+/************************************************ Med search page *********************************************************/
+.med_search_page {
+    display: grid;
+    place-items: center;
+}
+
+.med_search_page .card {
+    height: calc(100% - 15%) !important;
+    width: 65% !important;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    transition: all .3s ease;
+}
+
+.med_search_page .card::after {
+    content: "";
+    position: absolute;
+    top: -25%;
+    right: -4%;
+    background: url('../../public/image/med_search_side_img.png') no-repeat center;
+    background-size: 400px 650px;
+    height: 100%;
+    width: 25%;
+    z-index: 0;
+}
+
+.med_search_page .card::before {
+    content: "";
+    position: absolute;
+    bottom: -25%;
+    left: -5%;
+    background: url('../../public/image/med_search_side_img.png') no-repeat center;
+    background-size: 450px 650px;
+    height: 100%;
+    width: 25%;
+    z-index: 0;
+    transform: rotate(165deg); 
+}
+
+.med_search_page .card .card-body {
+    width: calc(100% - 45%);
+    overflow: auto;
+}
+
+.title_one {
+    color: var(--brand-color);
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.para_one {
+    color: gray;
+    font-size: 1.2rem;
+}
+
+.para_two {
+    color: gray;
+    font-size: 1rem;
+}
+
+.para_three {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+.med_search_input {
+    border: 1px solid #2566e881 !important;
+}
+
+.taper_hr {
+    display: inline-block;
+    height: 2px;
+    border: none;
+    background: linear-gradient(to right,
+            #0d6efd 0%,
+            #0d6efd 60%,
+            rgba(13, 110, 253, 0.4) 85%,
+            rgba(13, 110, 253, 0) 100%);
+}
+
+.search_suggestions {
+    height: 140px;
+    overflow: auto;
+}
+
+.suggestion_list_content {
+    color: gray;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.med_search_page_content{
+    z-index: 10;
+    background-color: #ffffff;
+    overflow: auto;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+
+
+/************************************************ Med search details page *********************************************************/
+.med_search_result {
+    display: grid;
+    place-items: center;
+}
+
+.med_search_result .med_search_result_card {
+    height: 740px !important;
+    width: 85% !important;
+    position: relative;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+
+.med_search_result .med_search_result_card::after {
+    content: "";
+    position: absolute;
+    top: -25%;
+    right: -4%;
+    background: url('../../public/image/med_search_side_img.png') no-repeat center;
+    background-size: 400px 650px;
+    height: 100%;
+    width: 25%;
+    z-index: 0;
+}
+
+.med_search_result .med_search_result_card::before {
+    content: "";
+    position: absolute;
+    bottom: -25%;
+    left: -5%;
+    background: url('../../public/image/med_search_side_img.png') no-repeat center;
+    background-size: 450px 650px;
+    height: 100%;
+    width: 25%;
+    z-index: 0;
+    transform: rotate(160deg);
+    transform-origin: center;
+}
+
+.med_search_result .med_search_result_card .card-body {
+    width: calc(100% - 5%);
+    margin: auto;
+    padding: 1rem .5rem;
+    overflow: auto;
+}
+
+.heading_tire_primary_badge {
+    background-color: var(--brand-color);
+    color: #ffffff;
+    font-size: 14px;
+    padding: .5rem 1rem;
+    border-radius: 6px;
+}
+
+.alternate_medications_width {
+    width: 65%;
+    height: 530px;
+    z-index: 10;
+    padding-left: 1rem;
+}
+
+.current_medication_font {
+    font-weight: 400;
+}
+
+.current_medication_left_side_header {
+    text-transform: uppercase;
+    color: var(--brand-color);
+    background-color: #007bff3a;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.current_medication_left_side_table th {
+    font-weight: 400;
+}
+
+.current_medication_left_side_table tr {
+    border-color: rgba(128, 128, 128, 0.219);
+}
+
+.current_medication_left_side_table td {
+    font-size: 14px;
+    color: gray;
+    padding: 1rem .5rem;
+}
+
+.current_medication_left_side_table tbody tr:last-child td{
+    border-bottom-width: 0px !important;
+}

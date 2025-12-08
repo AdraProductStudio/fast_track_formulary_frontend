@@ -3,15 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NEXT_PUBLIC_URL_SHOW_CHATBOT=true NEXT_PUBLIC_URL_APP_ENV=production NEXT_PUBLIC_URL_ENABLE_WHATSAPP_ERROR_REPORTER=true NEXT_PUBLIC_URL_MAINTANANCE_MODE=true next dev",
+    "local": "NEXT_PUBLIC_URL_SHOW_CHATBOT=true NEXT_PUBLIC_URL_APP_ENV=local NEXT_PUBLIC_URL_ENABLE_WHATSAPP_ERROR_REPORTER=false NEXT_PUBLIC_URL_MAINTANANCE_MODE=false next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
+    "axios": "^1.13.2",
+    "bootstrap": "^5.3.8",
+    "crypto-js": "^4.2.0",
+    "html-react-parser": "^5.2.10",
+    "html2pdf.js": "^0.12.1",
+    "js-cookie": "^3.0.5",
     "next": "16.0.7",
+    "pdfjs-dist": "^3.11.174",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "19.2.0",
+    "react-dropdown-select": "^4.12.2",
+    "react-dropzone": "^14.3.8",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0",
+    "react-paginate": "^8.3.0",
+    "react-phone-input-2": "^2.15.1",
+    "react-quilljs": "^2.0.5",
+    "sha256": "^0.2.0",
+    "twilio": "^5.10.7",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "babel-plugin-react-compiler": "1.0.0",
