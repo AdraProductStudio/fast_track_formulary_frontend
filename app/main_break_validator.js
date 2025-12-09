@@ -4,7 +4,6 @@ import sha256 from "sha256";
 import Image from "~/components/Image";
 import DotLoaderSingleLine from "~/components/Spinner/DotLoaderSingleLine";
 import { Images } from "~/public/image";
-import { encryptData } from "~/utils/crypto";
 import useOnlineStatus from "~/utils/functions/useOnlineStatus";
 
 export default function MaintananceMode({ children }) {
@@ -15,6 +14,7 @@ export default function MaintananceMode({ children }) {
 
     const public_access_token_2ndcareers = btoa(`${username}:${sha256(password)}`);
     const endpoint_access_key = "fast_track_formulary_maintanance_mode_key:APSPvtLimited@2023";
+    const custom_header_object = { endpoint_access_key: endpoint_access_key, expire_on: Date.now() + 30 * 1000 }
 
     async function fetchMaintananceStatus() {
         if (!is_online) return;
@@ -26,7 +26,7 @@ export default function MaintananceMode({ children }) {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${public_access_token_2ndcareers}`,
-                        'X-Custom-Encrypted-Header': `${encryptData({ endpoint: endpoint_access_key, expire_on: Date.now() + 20 * 1000 })}`
+                        'X-Custom-Encrypted-Header': `${btoa(JSON.stringify(custom_header_object))}`
                     },
                     cache: 'no-store'
                 });
