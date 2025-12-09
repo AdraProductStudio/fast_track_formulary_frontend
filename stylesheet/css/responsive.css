@@ -41,12 +41,26 @@
 
 /************************************************ max-width: 1200px *********************************************************/
 @media (max-width: 1200px) {
+    .main_layout_body_resolution {
+        height: calc(100% - 180px);
+    }
+
     .med_search_page .card {
         width: 85% !important;
     }
 
     .med_search_page .card .card-body {
         width: calc(100% - 20%);
+    }
+
+    .med_search_result .med_search_result_card {
+        width: 95% !important;
+    }
+
+    .alternate_medications_width {
+        width: 100%;
+        padding-left: 0rem;
+        margin-top: .8rem;
     }
 }
 
@@ -55,9 +69,7 @@
 
 
 /************************************************ max-width: 992px *********************************************************/
-@media (max-width: 992px) {
-     
-}
+@media (max-width: 992px) {}
 
 
 

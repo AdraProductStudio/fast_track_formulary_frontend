@@ -249,7 +249,7 @@ input::placeholder {
     width: 100%;
     display: grid;
     place-items: center;
-    background-color: #ffedd5;
+    background-color: #2566e841;
 }
 
 
@@ -292,6 +292,7 @@ input::placeholder {
 .med_search_page {
     display: grid;
     place-items: center;
+    overflow: hidden;
 }
 
 .med_search_page .card {
@@ -326,7 +327,7 @@ input::placeholder {
     height: 100%;
     width: 25%;
     z-index: 0;
-    transform: rotate(165deg); 
+    transform: rotate(165deg);
 }
 
 .med_search_page .card .card-body {
@@ -352,7 +353,7 @@ input::placeholder {
 
 .para_three {
     color: gray;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .med_search_input {
@@ -375,13 +376,24 @@ input::placeholder {
     overflow: auto;
 }
 
+.taper_border_right {
+    border-right: 2px solid transparent;
+    height: 100%;
+    border-image: linear-gradient(to bottom,
+            #0d6dfdd8 0%,
+            #0d6dfd6c 50%,
+            rgba(13, 110, 253, 0.4) 75%,
+            rgba(13, 110, 253, 0) 100%) 1;
+}
+
+
 .suggestion_list_content {
     color: gray;
     font-weight: 300;
     font-size: 15px;
 }
 
-.med_search_page_content{
+.med_search_page_content {
     z-index: 10;
     background-color: #ffffff;
     overflow: auto;
@@ -398,7 +410,7 @@ input::placeholder {
 }
 
 .med_search_result .med_search_result_card {
-    height: 740px !important;
+    height: calc(100% - 15%) !important;
     width: 85% !important;
     position: relative;
     overflow: hidden;
@@ -415,6 +427,11 @@ input::placeholder {
     height: 100%;
     width: 25%;
     z-index: 0;
+}
+
+.med_details_page_content{
+    z-index: 10;
+    
 }
 
 .med_search_result .med_search_result_card::before {
@@ -465,6 +482,12 @@ input::placeholder {
     font-size: 15px;
 }
 
+.suggestion_plus_icon {
+    color: var(--brand-color) !important;
+    background-color: #007bff3a !important;
+    padding: .3rem .5rem !important;
+}
+
 .current_medication_left_side_table th {
     font-weight: 400;
 }
@@ -479,6 +502,6 @@ input::placeholder {
     padding: 1rem .5rem;
 }
 
-.current_medication_left_side_table tbody tr:last-child td{
+.current_medication_left_side_table tbody tr:last-child td {
     border-bottom-width: 0px !important;
 }

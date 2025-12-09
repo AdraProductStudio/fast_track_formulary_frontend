@@ -16,7 +16,7 @@ export default function DotLoaderSingleLine() {
     .dots-loader div {
       width: 10px;
       height: 10px;
-      background-color: orange;
+      background-color: #2567E8;
       border-radius: 50%;
       animation: bounce 0.6s infinite alternate;
     }
