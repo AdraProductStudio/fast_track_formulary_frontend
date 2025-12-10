@@ -411,7 +411,7 @@ input::placeholder {
 
 .med_search_result .med_search_result_card {
     height: calc(100% - 15%) !important;
-    width: 85% !important;
+    width: 90% !important;
     position: relative;
     overflow: hidden;
     transition: all .3s ease;

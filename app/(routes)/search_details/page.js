@@ -40,23 +40,25 @@ export default function searchDetails() {
     return (
         <div className="h-100 med_search_result">
             <div className="card med_search_result_card custom_card_shadow">
-                <div className="card-body med_details_page_content">
+                <div className="card-header border-0 bg-transparent pt-3">
                     <ButtonComponent className="btn-transparent ps-0" onClick={() => router.back()}>
                         <span className="pe-2">{Icons.left_arrow_white}</span>
                         Back to search
                     </ButtonComponent>
 
-                    <div className="ps-2 py-2">
+                    <div className="ps-2 pt-2">
                         <h5 className="mb-3">
                             Humira
                             <span className="heading_tire_primary_badge ms-3">Tier 5</span>
                         </h5>
                         <p className="para_three">Praluent, Blue cross, standard Formulary</p>
                     </div>
+                </div>
 
+                <div className="card-body med_details_page_content">
                     <div className="d-flex flex-wrap">
                         <div className="col">
-                            <div className="card h-100 custom_card_shadow py-4">
+                            <div className="card h-100 custom_card_shadow">
                                 <div className="card-body">
                                     <h6>Current medications</h6>
                                     <h3 className="current_medication_font">{Icons.dollars_icon}6,000 - {Icons.dollars_icon}8,000
@@ -97,7 +99,7 @@ export default function searchDetails() {
                         </div>
 
                         <div className="alternate_medications_width">
-                            <div className="card h-100 custom_card_shadow py-4">
+                            <div className="card h-100 custom_card_shadow">
                                 <div className="card-body">
                                     <div className="custom_card_shadow rounded-3">
                                         <div className="p-3 d-flex flex-wrap align-items-center">

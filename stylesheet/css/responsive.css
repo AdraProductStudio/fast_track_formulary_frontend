@@ -31,9 +31,6 @@
 
 /************************************************ (min-width: 1200px) and (max-width: 1400px) *********************************************************/
 @media (min-width: 1200px) and (max-width: 1400px) {
-    .med_search_page .card .card-body {
-        width: calc(100% - 25%);
-    }
 
 }
 
@@ -41,12 +38,17 @@
 
 /************************************************ max-width: 1200px *********************************************************/
 @media (max-width: 1200px) {
-    .main_layout_body_resolution {
-        height: calc(100% - 180px);
+
+    .med_search_page,
+    .med_search_result {
+        place-items: end;
     }
 
     .med_search_page .card {
-        width: 85% !important;
+        width: 100% !important;
+        height: 95% !important;
+        border-top-right-radius: 22px;
+        border-top-left-radius: 22px;
     }
 
     .med_search_page .card .card-body {
@@ -54,11 +56,15 @@
     }
 
     .med_search_result .med_search_result_card {
-        width: 95% !important;
+        width: 100% !important;
+        height: 95% !important;
+        border-top-right-radius: 22px;
+        border-top-left-radius: 22px;
     }
 
     .alternate_medications_width {
         width: 100%;
+        height: auto;
         padding-left: 0rem;
         margin-top: .8rem;
     }
@@ -88,10 +94,6 @@
 
 /************************************************ max-width: 786px *********************************************************/
 @media (max-width: 786px) {
-    .med_search_page .card {
-        width: 90% !important;
-    }
-
     .med_search_page .card .card-body {
         width: calc(100% - 10%);
     }
@@ -102,10 +104,6 @@
 @media (max-width: 586px) {
     .professional_body {
         width: 95%;
-    }
-
-    .med_search_page .card {
-        width: 95% !important;
     }
 
     .med_search_page .card .card-body {
