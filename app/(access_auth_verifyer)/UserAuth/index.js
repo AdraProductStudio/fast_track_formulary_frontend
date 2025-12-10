@@ -1,13 +1,12 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAccessLogStore } from "~/store/access_log";
 import show_toast from "~/utils/functions/toast";
 
 export default function UserAuth({ children }) {
     const router = useRouter();
-    const pathname = usePathname();
     const { get_access_log_cookie } = useAccessLogStore();
     const [checkingAuth, setCheckingAuth] = useState(true);
 

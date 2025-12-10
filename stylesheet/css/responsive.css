@@ -18,9 +18,8 @@
 /************************************************ min-width: 1400px *********************************************************/
 @media (min-width: 1400px) {
     .med_search_page .card .card-body {
-        width: calc(100% - 25%);
+        width: 650px;
     }
-
 }
 
 /************************************************ min-width: 992px *********************************************************/
@@ -31,7 +30,9 @@
 
 /************************************************ (min-width: 1200px) and (max-width: 1400px) *********************************************************/
 @media (min-width: 1200px) and (max-width: 1400px) {
-
+    .med_search_page .card .card-body {
+        width: 600px;
+    }
 }
 
 
@@ -49,10 +50,6 @@
         height: 95% !important;
         border-top-right-radius: 22px;
         border-top-left-radius: 22px;
-    }
-
-    .med_search_page .card .card-body {
-        width: calc(100% - 20%);
     }
 
     .med_search_result .med_search_result_card {

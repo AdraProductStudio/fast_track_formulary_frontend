@@ -361,12 +361,6 @@ input::placeholder {
     transition: all .3s ease;
 }
 
-
-.med_search_page .card .card-body {
-    width: calc(100% - 55%);
-    overflow: auto;
-}
-
 .med_search_input {
     border: 1px solid #2566e881 !important;
 }
@@ -404,15 +398,6 @@ input::placeholder {
     font-size: 15px;
 }
 
-.med_search_page_content {
-    z-index: 10;
-    background-color: #ffffff;
-    overflow: auto;
-    height: 100%;
-    display: grid;
-    place-content: center;
-}
-
 
 /************************************************ Med search details page *********************************************************/
 .med_search_result {
@@ -430,7 +415,6 @@ input::placeholder {
 
 .med_details_page_content {
     z-index: 10;
-
 }
 
 .med_search_result .med_search_result_card .card-body {
