@@ -56,7 +56,7 @@ export default function searchDetails() {
 
                     <div className="d-flex flex-wrap">
                         <div className="col">
-                            <div className="card h-100 custom_card_shadow">
+                            <div className="card h-100 custom_card_shadow py-4">
                                 <div className="card-body">
                                     <h6>Current medications</h6>
                                     <h3 className="current_medication_font">{Icons.dollars_icon}6,000 - {Icons.dollars_icon}8,000
@@ -97,7 +97,7 @@ export default function searchDetails() {
                         </div>
 
                         <div className="alternate_medications_width">
-                            <div className="card h-100 custom_card_shadow">
+                            <div className="card h-100 custom_card_shadow py-4">
                                 <div className="card-body">
                                     <div className="custom_card_shadow rounded-3">
                                         <div className="p-3 d-flex flex-wrap align-items-center">
@@ -133,11 +133,11 @@ export default function searchDetails() {
                                                         </div>
 
                                                         <div className="mt-3 d-flex flex-wrap">
-                                                            <div className="col taper_border_right">
+                                                            <div className="col taper_border_right pe-3">
                                                                 <h6 className="text-primary">Cost</h6>
                                                                 <p className="para_three mb-2">{medication?.indications || ""}</p>
                                                             </div>
-                                                            <div className="col ps-2">
+                                                            <div className="col ps-3">
                                                                 <h6 className="text-primary">Restrictions</h6>
                                                                 <p className="para_three mb-2">{medication?.restrictions || ""}</p>
                                                             </div>

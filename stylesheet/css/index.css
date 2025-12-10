@@ -331,7 +331,7 @@ input::placeholder {
 }
 
 .med_search_page .card .card-body {
-    width: calc(100% - 45%);
+    width: calc(100% - 55%);
     overflow: auto;
 }
 
