@@ -18,7 +18,7 @@ const suggestionList = [
 export default function LoginScreen() {
     const router = useRouter();
     const [data, setData] = useState({})
-
+ 
     function setDataFun(key, value) { setData(prev => ({ ...prev, [key]: value })) }
     function clear_search_fun() { setData(prev => ({ ...prev, search_text: "" })) }
 
@@ -31,7 +31,7 @@ export default function LoginScreen() {
             return show_toast({ type: 'error', message: 'Please enter search text' })
 
         console.log("searching for ", data?.search_text);
-        router.push(`/search_details`)
+        router.push(`/user/search_details`)
     }
 
     return (

@@ -3,7 +3,7 @@ import { create } from "zustand";
 import Cookies from "js-cookie";
 import { encryptData, decryptData } from "~/utils/crypto";
 
-const COOKIE_KEY = "two_nd_access_log";
+const COOKIE_KEY = "ftf_access_log";
 
 // Load initial cookie state
 const loadCookieState = () => {

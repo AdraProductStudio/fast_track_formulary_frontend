@@ -19,8 +19,8 @@ input::placeholder {
 
 .text_auth_input_label {
     color: var(--login-label-color);
-    font-weight: 600;
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: clamp(16px, 1vw, 17px);
+    margin-bottom: .25rem !important;
 }
 
 /* ----------------------------------------------------------------------------------------------- */
@@ -287,6 +287,62 @@ input::placeholder {
     overflow: auto;
 }
 
+/************************************************************ Card design *********************************************************/
+.med_search_page .card::after,
+.med_search_result .med_search_result_card::after {
+    content: "";
+    position: absolute;
+    top: -25%;
+    right: -4%;
+    background: url('../../public/image/med_search_side_img.png') no-repeat center;
+    background-size: 400px 650px;
+    height: 100%;
+    width: 25%;
+    z-index: 0;
+}
+
+.med_search_page .card::before,
+.med_search_result .med_search_result_card::before {
+    content: "";
+    position: absolute;
+    bottom: -25%;
+    left: -5%;
+    background: url('../../public/image/med_search_side_img.png') no-repeat center;
+    background-size: 450px 650px;
+    height: 100%;
+    width: 25%;
+    z-index: 0;
+    transform: rotate(165deg);
+}
+
+
+
+
+
+/************************************************************ Login page *********************************************************/
+
+.login_container {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.login_container .card {
+    height: calc(100% - 15%) !important;
+    width: 65% !important;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    transition: all .3s ease;
+}
+
+.login_form_content{
+    max-width: 500px;
+    z-index: 10;
+}
+
+
 
 /************************************************ Med search page *********************************************************/
 .med_search_page {
@@ -305,55 +361,10 @@ input::placeholder {
     transition: all .3s ease;
 }
 
-.med_search_page .card::after {
-    content: "";
-    position: absolute;
-    top: -25%;
-    right: -4%;
-    background: url('../../public/image/med_search_side_img.png') no-repeat center;
-    background-size: 400px 650px;
-    height: 100%;
-    width: 25%;
-    z-index: 0;
-}
-
-.med_search_page .card::before {
-    content: "";
-    position: absolute;
-    bottom: -25%;
-    left: -5%;
-    background: url('../../public/image/med_search_side_img.png') no-repeat center;
-    background-size: 450px 650px;
-    height: 100%;
-    width: 25%;
-    z-index: 0;
-    transform: rotate(165deg);
-}
 
 .med_search_page .card .card-body {
     width: calc(100% - 55%);
     overflow: auto;
-}
-
-.title_one {
-    color: var(--brand-color);
-    font-size: 3rem;
-    font-weight: 400;
-}
-
-.para_one {
-    color: gray;
-    font-size: 1.2rem;
-}
-
-.para_two {
-    color: gray;
-    font-size: 1rem;
-}
-
-.para_three {
-    color: gray;
-    font-size: 0.8rem;
 }
 
 .med_search_input {
@@ -410,42 +421,16 @@ input::placeholder {
 }
 
 .med_search_result .med_search_result_card {
-    height: calc(100% - 15%) !important;
+    height: calc(100% - 10%) !important;
     width: 90% !important;
     position: relative;
     overflow: hidden;
     transition: all .3s ease;
 }
 
-.med_search_result .med_search_result_card::after {
-    content: "";
-    position: absolute;
-    top: -25%;
-    right: -4%;
-    background: url('../../public/image/med_search_side_img.png') no-repeat center;
-    background-size: 400px 650px;
-    height: 100%;
-    width: 25%;
-    z-index: 0;
-}
-
-.med_details_page_content{
+.med_details_page_content {
     z-index: 10;
-    
-}
 
-.med_search_result .med_search_result_card::before {
-    content: "";
-    position: absolute;
-    bottom: -25%;
-    left: -5%;
-    background: url('../../public/image/med_search_side_img.png') no-repeat center;
-    background-size: 450px 650px;
-    height: 100%;
-    width: 25%;
-    z-index: 0;
-    transform: rotate(160deg);
-    transform-origin: center;
 }
 
 .med_search_result .med_search_result_card .card-body {

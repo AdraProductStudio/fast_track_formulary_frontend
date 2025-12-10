@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { encryptData, decryptData } from "~/utils/crypto";
 import get_role_from_path from "~/utils/functions/get_role_from_path";
 
-const COOKIE_KEY = "two_nd_project_log";
+const COOKIE_KEY = "ftf_project_log";
 
 // load initial cookie state
 function loadCookieState() {

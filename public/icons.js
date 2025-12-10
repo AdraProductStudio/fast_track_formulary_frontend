@@ -2,7 +2,7 @@ import { IoArrowBack, IoCloseOutline } from "react-icons/io5";
 import { TbArrowsDiagonalMinimize2 } from "react-icons/tb";
 import { TiStarFullOutline, TiTick } from "react-icons/ti";
 import { IoIosInformationCircleOutline, IoMdSearch } from "react-icons/io";
-import { CiMail } from "react-icons/ci";
+import { CiMail, CiUser } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
 import { MdArrowOutward, MdDeleteOutline, MdOutlineContentCopy, MdOutlineDeleteOutline, MdOutlineKeyboardArrowDown, MdOutlineMenuOpen } from "react-icons/md";
 import { IoNotificationsOutline } from "react-icons/io5";
@@ -50,6 +50,7 @@ const suggestion_arrow = <MdArrowOutward className="text-primary" size={25} />
 const dollars_icon = <LuDollarSign size={26} />
 const plus_icon = <FiPlus size={22} />
 const minus_icon = <FiMinus size={22} />
+const login_user_icon = <CiUser className="text-white" size={30} />
 
 
 const Icons = {
@@ -60,6 +61,6 @@ const Icons = {
     job_location_non_sponsored, save_icon, saved_icon, share_icon,
     copy_icon, job_apply_info, delete_icon, upload_icon, close_icon_white,
     filter_icon, remove_icon, suggestion_arrow, left_arrow_white, dollars_icon,
-    plus_icon, minus_icon
+    plus_icon, minus_icon, login_user_icon
 }
 export default Icons

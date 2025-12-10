@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAccessLogStore } from "~/store/access_log";
 import get_role_from_path from "~/utils/functions/get_role_from_path";
 import show_toast from "~/utils/functions/toast";
-import { handle_refresh_token } from "../auth";
+import { handle_refresh_token } from "../../auth";
 import { send_whatsapp_error } from "~/utils/functions/whatsapp_catch_error_reporter";
 import { useProjectLogStore } from "~/store/project_log_store";
 import { auth_json } from "~/json/json_data/auth";
@@ -109,9 +109,9 @@ axiosInstance.interceptors.request.use((config) => {
 // === Response Interceptor ===
 axiosInstance.interceptors.response.use(
     (response) => {
-        if (![0, 200, 201].includes(response?.data?.error_code)) {
+        const status = response?.status;
+        if (![0, 200, 201].includes(status)) {
             //Whatsapp Error Reporter For TESTING IN ALL STATUS
-            const status = response?.data?.error_code;
             if (auth_json.status_messages[status] && process.env.NEXT_PUBLIC_URL_ENABLE_WHATSAPP_ERROR_REPORTER === "true") {
                 const user_data = get_role_based_user_data();
                 const status_message = auth_json.status_messages[status] || "Something went wrong";

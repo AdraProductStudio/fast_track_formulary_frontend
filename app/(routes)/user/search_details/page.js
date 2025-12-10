@@ -51,7 +51,7 @@ export default function searchDetails() {
                             Humira
                             <span className="heading_tire_primary_badge ms-3">Tier 5</span>
                         </h5>
-                        <p className="para_three">Praluent, Blue cross, standard Formulary</p>
+                        <p className="para_three mb-lg-0">Praluent, Blue cross, standard Formulary</p>
                     </div>
                 </div>
 

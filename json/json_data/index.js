@@ -5,6 +5,5 @@ export default function (props) {
 
     return {
         auth_json: authFields,
-        professional_json: professionalFields,
     };
 }

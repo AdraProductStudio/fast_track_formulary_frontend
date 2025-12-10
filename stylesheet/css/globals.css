@@ -8,9 +8,9 @@
   --background: #ffffff;
   --foreground: #171717;
   --brand-color: #2567E8;
-  --mandatory-color: #1e75bb;
-  --auth-input-label-color: #1e75bb;
-  --login-label-color: #1f7a8d;
+  --mandatory-color: red;
+  --auth-input-label-color: black;
+  --login-label-color: #2567E8;
   --announcement-bg-color: #FFE7D3;
 
   --title-one-font-size: 2rem;
@@ -188,7 +188,7 @@ select:-webkit-autofill:focus {
 .custom_card_shadow {
   border: none;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0px 20px #00000017;
 }
 
 
@@ -353,4 +353,30 @@ select:-webkit-autofill:focus {
   color: #fff;
   transition: 0.1s linear;
   cursor: pointer;
+}
+
+
+
+
+
+
+.title_one {
+  color: var(--brand-color);
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.para_one {
+  color: gray;
+  font-size: 1.2rem;
+}
+
+.para_two {
+  color: gray;
+  font-size: 1rem;
+}
+
+.para_three {
+  color: gray;
+  font-size: 0.8rem;
 }
