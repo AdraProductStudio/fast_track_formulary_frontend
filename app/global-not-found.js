@@ -1,11 +1,10 @@
-"use client"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./bootstrap-client";
 import "~/stylesheet/css/globals.css";
 import "~/stylesheet/css/index.css";
 import "~/stylesheet/css/responsive.css";
 import Image from "~/components/Image"
-import { Images } from "~/public/image"
+import logo from "~/public/image/logo.png";
 
 export const metadata = {
     title: 'Not Found',
@@ -20,7 +19,7 @@ export default function GlobalNotFound() {
                 <main className="main_layout_resolution">
                     <header className="main_layout_header_resolution">
                         <div className="col">
-                            <Image src={Images.logo_image} width={130} height={95} alt="logo" />
+                            <Image src={logo} width={130} height={95} alt="logo" />
                         </div>
                     </header>
 
