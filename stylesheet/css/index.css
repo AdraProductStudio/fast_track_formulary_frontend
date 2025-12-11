@@ -317,8 +317,6 @@ input::placeholder {
 
 
 
-
-
 /************************************************************ Login page *********************************************************/
 
 .login_container {
@@ -337,7 +335,7 @@ input::placeholder {
     transition: all .3s ease;
 }
 
-.login_form_content{
+.login_form_content {
     max-width: 500px;
     z-index: 10;
 }
@@ -434,7 +432,7 @@ input::placeholder {
 
 .alternate_medications_width {
     width: 65%;
-    height: 530px;
+    height: 580px;
     z-index: 10;
     padding-left: 1rem;
 }
@@ -473,4 +471,46 @@ input::placeholder {
 
 .current_medication_left_side_table tbody tr:last-child td {
     border-bottom-width: 0px !important;
+}
+
+.custom_login_spinner {
+    width: 4.5rem;
+    height: 4.5rem;
+    border: .25em solid var(--brand-color) !important;
+    border-right-color: #0000 !important;
+}
+
+.custom_card_success {
+    border-radius: 8px;
+    border: 1px solid #7BF1A8;
+    background: #DCFCE7;
+    color: #008236;
+    padding: .4rem 1rem;
+    font-size: 14px;
+    display: inline-block;
+}
+
+/************************************************ med suggesstion list *********************************************************/
+.med_suggestion_list_card {
+    cursor: pointer;
+}
+
+.med_suggestion_list_card .req_content h6 {
+    color: #E17100;
+}
+
+.med_suggestion_list_card .req_content p {
+    color: #7B3306;
+}
+
+.med_suggestion_list_card .medical_condition_name {
+    display: inline-flex;
+    padding: 8px 8px 8px 5px;
+    align-items: center;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #EEF2FF 0%, #FAF5FF 100%);
+}
+
+.med_suggestion_list_card .medical_condition_name p {
+    color: #312C85;
 }

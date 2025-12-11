@@ -15,7 +15,7 @@ const suggestionList = [
     "Praluent, Humana, standard Formulary",
 ]
 
-export default function LoginScreen() {
+export default function SearchMedicine() {
     const router = useRouter();
     const [data, setData] = useState({})
  

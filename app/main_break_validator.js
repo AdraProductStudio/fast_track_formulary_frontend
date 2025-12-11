@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import sha256 from "sha256";
 import Image from "~/components/Image";
 import DotLoaderSingleLine from "~/components/Spinner/DotLoaderSingleLine";
+import SpinnerComponent from "~/components/Spinner/Spinner";
 import { Images } from "~/public/image";
+import { handleLogin } from "~/services/auth";
+import { useAccessLogStore } from "~/store/access_log";
+import { useAuthState } from "~/utils/functions/useAuthState";
 import useOnlineStatus from "~/utils/functions/useOnlineStatus";
 
 export default function MaintananceMode({ children }) {
@@ -15,6 +19,9 @@ export default function MaintananceMode({ children }) {
     const public_access_token_2ndcareers = btoa(`${username}:${sha256(password)}`);
     const endpoint_access_key = "fast_track_formulary_maintanance_mode_key:APSPvtLimited@2023";
     const custom_header_object = { endpoint_access_key: endpoint_access_key, expire_on: Date.now() + 30 * 1000 }
+
+    const { state, setState, set_errors } = useAuthState({ email_id: "shreya@adraproductstudio.com", password: "Stanes33@" })
+    const { get_access_log_cookie, set_access_log_cookie } = useAccessLogStore();
 
     async function fetchMaintananceStatus() {
         if (!is_online) return;
@@ -39,8 +46,14 @@ export default function MaintananceMode({ children }) {
         }
     }
 
+    async function authenticateUser() {
+        if (!get_access_log_cookie['user']?.token)
+            handleLogin({ state, setState, set_errors, get_access_log_cookie, set_access_log_cookie });
+    }
+
     useEffect(() => {
         fetchMaintananceStatus();
+        authenticateUser();
 
         const interval = setInterval(() => {
             fetchMaintananceStatus();
@@ -51,29 +64,80 @@ export default function MaintananceMode({ children }) {
 
     if (!is_online) {
         return (
-            <div className="maintanance_mode_container">
-                <div className="col-12 col-md-6 text-center">
-                    <Image src={Images.page_not_found} width={300} height={300} alt="offline" />
-                    <h1>No Internet Connection</h1>
-                    <p>Your device seems to be offline.</p>
-                    <p>Please check your network and try again.</p>
+            <main className="main_layout_resolution">
+                <header className="main_layout_header_resolution">
+                    <div className="col">
+                        <Image src={Images.logo_image} width={130} height={95} alt="logo" />
+                    </div>
+                </header>
+
+                <div className="main_layout_body_resolution">
+                    <div className="h-100 med_search_page">
+                        <div className="card rounded-4">
+                            <div className="card-body login_form_content text-center">
+                                <div className="col-12 text-center">
+                                    <h1>No Internet Connection</h1>
+                                    <p>Your device seems to be offline.</p>
+                                    <p>Please check your network and try again.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </main >
         );
     }
 
     if (isMaintananceMode === null) return null;
 
+    if (state?.spinner || !get_access_log_cookie['user']?.token)
+        return (
+            <main className="main_layout_resolution">
+                <header className="main_layout_header_resolution">
+                    <div className="col">
+                        <Image src={Images.logo_image} width={130} height={95} alt="logo" />
+                    </div>
+                </header>
+
+                <div className="main_layout_body_resolution">
+                    <div className="h-100 med_search_page">
+                        <div className="card rounded-4">
+                            <div className="card-body login_form_content text-center">
+                                {state?.spinner ?
+                                    <SpinnerComponent className="custom_login_spinner" />
+                                    :
+                                    <h5>Authentication failed</h5>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        )
+
     return (
         isMaintananceMode && process.env.NEXT_PUBLIC_URL_MAINTANANCE_MODE === "true" ?
-            <div className="maintanance_mode_container">
-                <div className="col-12 col-md-6 text-center">
-                    <Image src={Images.page_not_found} alt="Maintenance Mode" width={300} height={300} />
-                    <DotLoaderSingleLine />
-                    <h1>We'll be back soon!</h1>
-                    <p>Our website is currently undergoing scheduled maintenance. Thank you for your patience.</p>
+            <main className="main_layout_resolution">
+                <header className="main_layout_header_resolution">
+                    <div className="col">
+                        <Image src={Images.logo_image} width={130} height={95} alt="logo" />
+                    </div>
+                </header>
+
+                <div className="main_layout_body_resolution">
+                    <div className="h-100 med_search_page">
+                        <div className="card rounded-4">
+                            <div className="card-body login_form_content text-center">
+                                <div className="col-12 text-center">
+                                    <DotLoaderSingleLine />
+                                    <h1>We'll be back soon!</h1>
+                                    <p>Our website is currently undergoing scheduled maintenance. Thank you for your patience.</p>
+                                </div>
+                            </div >
+                        </div>
+                    </div>
                 </div>
-            </div >
+            </main>
             :
             children
     )
