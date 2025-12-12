@@ -1,26 +1,22 @@
 
 "use client";
-import sha256 from "sha256";
 import LoginValidation from "~/validate/login";
 import show_toast from "~/utils/functions/toast";
-import ForgotPasswordValidation from "~/validate/forgot_password";
-import ResetPasswordValidation from "~/validate/reset_password";
-import axios from "axios";
-import user_instance from "../axios/user_instance";
+import user_instance from "../../axios/user_instance";
 
 
 //-----------------------------------------------Refresh token functions ------------------------------------------------------//
-// export async function handle_refresh_token(role) {
-//     try {
-//         const { data } = await axiosInstance.post('/renewal_access_token', { role });
+export async function handle_refresh_token(role) {
+    try {
+        const { data } = await axiosInstance.post('/renewal_access_token', { role });
 
-//         if (data?.error_code === 0 || data?.error_code === 200) return data?.data?.access_token || null;
-//         else return null;
-//     } catch (error) {
-//         console.warn(error?.message || "Token refresh failed.")
-//         return null;
-//     }
-// }
+        if (data?.error_code === 0 || data?.error_code === 200) return data?.data?.access_token || null;
+        else return null;
+    } catch (error) {
+        console.warn(error?.message || "Token refresh failed.")
+        return null;
+    }
+}
 
 
 //-----------------------------------------------Login functions ------------------------------------------------------//

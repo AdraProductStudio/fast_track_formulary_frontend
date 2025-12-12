@@ -3,13 +3,13 @@ import axios from "axios";
 import { useAccessLogStore } from "~/store/access_log";
 import get_role_from_path from "~/utils/functions/get_role_from_path";
 import show_toast from "~/utils/functions/toast";
-import { handle_refresh_token } from "../../auth";
+import { handle_refresh_token } from "../../endpoint/auth";
 import { send_whatsapp_error } from "~/utils/functions/whatsapp_catch_error_reporter";
 import { useProjectLogStore } from "~/store/project_log_store";
 import { auth_json } from "~/json/json_data/auth";
 
-const axiosInstance = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_URL_API_URL,
+const drugs_instance = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_URL_DRUGS_API_URL,
     headers: { "Content-Type": "application/json" },
 });
 
@@ -51,7 +51,7 @@ function get_role_based_token() {
     const accessLog = useAccessLogStore.getState().get_access_log_cookie;
 
     if (role)
-        return accessLog[role]?.access_token || null;
+        return accessLog[role]?.token || null;
 
     return null;
 }
@@ -71,7 +71,7 @@ function get_role_based_user_data() {
 
 
 // === Request Interceptor ===
-axiosInstance.interceptors.request.use((config) => {
+drugs_instance.interceptors.request.use((config) => {
     const token = get_role_based_token();
     const role = get_role_from_path();
 
@@ -107,7 +107,7 @@ axiosInstance.interceptors.request.use((config) => {
 });
 
 // === Response Interceptor ===
-axiosInstance.interceptors.response.use(
+drugs_instance.interceptors.response.use(
     (response) => {
         const status = response?.status;
         if (![0, 200, 201].includes(status)) {
@@ -160,7 +160,7 @@ axiosInstance.interceptors.response.use(
                         failedQueue.push({
                             resolve: (token) => {
                                 originalRequest.headers["Authorization"] = "Bearer " + token;
-                                resolve(axiosInstance(originalRequest));
+                                resolve(drugs_instance(originalRequest));
                             },
                             reject: (err) => reject(err),
                         });
@@ -177,7 +177,7 @@ axiosInstance.interceptors.response.use(
 
                     processQueue(null, newToken);
                     originalRequest.headers["Authorization"] = "Bearer " + newToken;
-                    return axiosInstance(originalRequest);
+                    return drugs_instance(originalRequest);
                 } catch (err) {
                     processQueue(err, null);
                     return Promise.reject(err);
@@ -213,4 +213,4 @@ axiosInstance.interceptors.response.use(
     }
 );
 
-export default axiosInstance;
+export default drugs_instance;

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Icons from "~/public/icons";
 import ButtonComponent from "../Button/Button";
-import { handle_delete_notifications, handle_get_notifications } from "~/services/auth";
+import { handle_delete_notifications, handle_get_notifications } from "~/services/endpoint/auth";
 import Image from "../Image";
 import { Images } from "~/public/image";
 import notificationMessageGlow from "../Skleton/notification";

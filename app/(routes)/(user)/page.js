@@ -5,7 +5,9 @@ import { useState } from "react";
 import ButtonComponent from "~/components/Button/Button";
 import { SearchComponent } from "~/components/Search";
 import Icons from "~/public/icons";
+import { encryptData } from "~/utils/crypto";
 import show_toast from "~/utils/functions/toast";
+import drugsSearchValidation from "~/validate/drugs_Search";
 
 const suggestionList = [
     "Praluent, Blue cross, standard Formulary",
@@ -18,7 +20,7 @@ const suggestionList = [
 export default function SearchMedicine() {
     const router = useRouter();
     const [data, setData] = useState({})
- 
+
     function setDataFun(key, value) { setData(prev => ({ ...prev, [key]: value })) }
     function clear_search_fun() { setData(prev => ({ ...prev, search_text: "" })) }
 
@@ -27,11 +29,14 @@ export default function SearchMedicine() {
     }
 
     function searchFun() {
-        if (!data?.search_text)
-            return show_toast({ type: 'error', message: 'Please enter search text' })
+        const { errors } = drugsSearchValidation(data);
 
-        console.log("searching for ", data?.search_text);
-        router.push(`/user/search_details`)
+        if (Object.keys(errors).length) {
+            show_toast({ type: 'error', message: errors.join(", ") });
+            return;
+        }
+
+        router.push(`/${encryptData({ search_text: data?.search_text || "" })}`)
     }
 
     return (

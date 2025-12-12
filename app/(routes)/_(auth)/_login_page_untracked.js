@@ -5,7 +5,7 @@ import { useCallback } from "react";
 import ButtonSpinner from "~/components/Spinner/ButtonSpinner";
 import { Inputfunctions } from "~/json/Inputfunctions";
 import useAuthUi from "~/json/json_data/auth";
-import { handleLogin } from "~/services/auth";
+import { handleLogin } from "~/services/endpoint/auth";
 import { useAccessLogStore } from "~/store/access_log";
 import { useAuthState } from "~/utils/functions/useAuthState";
 

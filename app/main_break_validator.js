@@ -5,7 +5,7 @@ import Image from "~/components/Image";
 import DotLoaderSingleLine from "~/components/Spinner/DotLoaderSingleLine";
 import SpinnerComponent from "~/components/Spinner/Spinner";
 import { Images } from "~/public/image";
-import { handleLogin } from "~/services/auth";
+import { handleLogin } from "~/services/endpoint/auth";
 import { useAccessLogStore } from "~/store/access_log";
 import { useAuthState } from "~/utils/functions/useAuthState";
 import useOnlineStatus from "~/utils/functions/useOnlineStatus";

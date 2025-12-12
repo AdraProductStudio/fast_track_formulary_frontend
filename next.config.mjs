@@ -6,16 +6,11 @@ const nextConfig = {
 
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'devcdn.2ndcareers.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'devapp.2ndcareers.com',
-        pathname: '/**',
-      },
+      // {
+      //   protocol: 'https',
+      //   hostname: 'devcdn.2ndcareers.com',
+      //   pathname: '/**',
+      // },
     ],
   },
 
