@@ -47,7 +47,7 @@
 
     .med_search_page .card {
         width: 100% !important;
-        height: 85% !important;
+        height: 95% !important;
         border-top-right-radius: 22px;
         border-top-left-radius: 22px;
     }
@@ -97,6 +97,11 @@
 @media (max-width: 786px) {
     .med_search_page .card .card-body {
         width: calc(100% - 10%);
+    }
+
+    .med_search_page_content{
+        background-color: white;
+        z-index: 10;
     }
 }
 

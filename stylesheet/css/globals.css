@@ -392,3 +392,7 @@ select:-webkit-autofill:focus {
   overflow-wrap: anywhere;
   white-space: normal;
 }
+
+.rbt-input-main.form-control{
+  padding-right: 3rem !important;
+}

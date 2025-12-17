@@ -13,7 +13,7 @@ export default function mainLayout({ children }) {
             <main className="main_layout_resolution">
                 <header className="main_layout_header_resolution">
                     <div className="col">
-                        <Image src={Images.logo_image} width={130} height={95} alt="logo" />
+                        <Image src={Images.logo_image} width={130} height={85} alt="logo" />
                     </div>
                     <div className="col text-end">
                         <ButtonComponent className="btn-transparent">

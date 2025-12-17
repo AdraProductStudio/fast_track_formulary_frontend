@@ -316,7 +316,6 @@ input::placeholder {
 }
 
 
-
 /************************************************************ Login page *********************************************************/
 
 .login_container {
@@ -338,6 +337,10 @@ input::placeholder {
 .login_form_content {
     max-width: 500px;
     z-index: 10;
+    height: 80%;
+    display: grid;
+    place-items: center;
+    background-color: #ffffff;
 }
 
 
@@ -515,7 +518,7 @@ input::placeholder {
     color: #312C85;
 }
 
-.med_suggestion_list_card_tier{
+.med_suggestion_list_card_tier {
     position: absolute;
     top: 0px;
     right: 0px;
