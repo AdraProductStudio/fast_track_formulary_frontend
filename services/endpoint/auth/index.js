@@ -1,16 +1,23 @@
 
 "use client";
 import LoginValidation from "~/validate/login";
-import show_toast from "~/utils/functions/toast";
-import user_instance from "../../axios/user_instance";
+import search_instance from "../../axios/search_instance";
+import axios from "axios";
 
 
 //-----------------------------------------------Refresh token functions ------------------------------------------------------//
 export async function handle_refresh_token(role) {
     try {
-        const { data } = await axiosInstance.post('/renewal_access_token', { role });
+        let basic_auth_string = btoa(`shreya@adraproductstudio.com:8u1QHhgLIPNMRaUl7cTh8NFzNA3sHAa95XEzcRI17qo`);
 
-        if (data?.error_code === 0 || data?.error_code === 200) return data?.data?.access_token || null;
+        const { data } = await axios.get(process.env.NEXT_PUBLIC_URL_SEARCH_API_URL + "/gettoken", {
+            headers: {
+                Authorization: `Basic ${basic_auth_string}`,
+                domain: "ftfsearchapi.adraproductstudio.com"
+            },
+        });
+
+        if (data?.error_code === 200) return data?.data?.token || null;
         else return null;
     } catch (error) {
         console.warn(error?.message || "Token refresh failed.")
@@ -30,20 +37,21 @@ export async function handleLogin(props) {
     props.setState((prev) => ({ ...prev, spinner: true }));
 
     try {
-        const res = await user_instance.post("/IsAuthenticated", {
-            email: props.state.email_id.trim(),
-            password: props.state.password.trim(),
+        let basic_auth_string = btoa(`${props.state.email_id}:${props.state.password}`);
+        const { data } = await search_instance.get("/gettoken", {
+            headers: {
+                Authorization: `Basic ${basic_auth_string}`
+            },
         });
 
-        if (res.status === 200) {
-            const { data } = res;
+        if (data?.error_code === 200) {
 
             if (props.get_access_log_cookie) {
                 let signin_user_data = {
                     ...props.get_access_log_cookie,
                     ["user"]: {
                         last_login_on: new Date().toLocaleString(),
-                        ...data
+                        ...data?.data
                     }
                 }
 

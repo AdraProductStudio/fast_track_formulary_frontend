@@ -1,41 +1,31 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import ButtonComponent from "~/components/Button/Button";
-import {AsyncSearchComponent} from "~/components/Async_type_head"
+import { useRef, useState } from "react";
+import { AsyncSearchComponent } from "~/components/Async_type_head"
 import Icons from "~/public/icons";
+import { handle_Search_autocomplete_func } from "~/services/endpoint/durgs";
 import { encryptData } from "~/utils/crypto";
-import show_toast from "~/utils/functions/toast";
 import drugsSearchValidation from "~/validate/drugs_Search";
 
-const suggestionList = [
-    "Praluent, Blue cross, standard Formulary",
-    "Praluent, United Healthcare, standard Formulary",
-    "Praluent, Aetna, standard Formulary",
-    "Praluent, Cigna, standard Formulary",
-    "Praluent, Humana, standard Formulary",
-]
+const suggestionList = ["Aspirin"]
 
 export default function SearchMedicine() {
     const router = useRouter();
+    const typeaheadRef = useRef(null);
     const [data, setData] = useState({})
 
-    function setDataFun(key, value) { setData(prev => ({ ...prev, [key]: value })) }
-    function clear_search_fun() { setData(prev => ({ ...prev, search_text: [] })) }
-
     function handle_suggestion_search(suggestion) {
-        setDataFun('search_text', suggestion.target.innerText)
+        setData(prev => ({ ...prev, selected_search_text: [{ label: suggestion.target.innerText }] }))
+        requestAnimationFrame(() => { typeaheadRef.current?.focus() });
+        handle_Search_autocomplete_func({ value: suggestion.target.innerText, setState: setData })
     }
 
-    function searchFun() {
-        const { errors } = drugsSearchValidation(data);
+    function searchFun(search_data) {
+        const { errors } = drugsSearchValidation(search_data);
+        if (Object.keys(errors).length) return;
 
-        if (Object.keys(errors).length) {
-            show_toast({ type: 'error', message: errors.join(", ") });
-            return;
-        }
-        router.push(`/${encryptData({ search_text: data?.search_text || [] })}`)
+        router.push(`/${encryptData({ search_text: { formularyId: search_data?.formularyId || "", label: search_data?.label || "" } || {} })}`)
     }
 
     return (
@@ -49,19 +39,14 @@ export default function SearchMedicine() {
 
                     <div className="py-3 text-center">
                         <AsyncSearchComponent
+                            ref={typeaheadRef}
                             className="med_search_input"
                             placeholder="Enter medication name, insurance, and formulary..."
-                            value={data?.search_text || []}
-                            setState={setDataFun}
-                            clear_search={clear_search_fun}
+                            state={data}
+                            setState={setData}
                             onClick={searchFun}
                         />
-                        <p className="para_three mt-3">Example:"Praluent, Blue cross, standard Formulary" or just "praluent"</p>
                     </div>
-
-                    <ButtonComponent className="w-100 btn_brand_color" onClick={searchFun}>
-                        Search Medications
-                    </ButtonComponent>
 
                     <div className="med_wuick_search mt-4">
                         <div className="para_three mb-2">

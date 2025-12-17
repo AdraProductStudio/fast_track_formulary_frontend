@@ -380,3 +380,15 @@ select:-webkit-autofill:focus {
   color: gray;
   font-size: 0.8rem;
 }
+
+.word_break {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.word_break_all {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}

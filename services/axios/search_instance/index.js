@@ -8,9 +8,12 @@ import { send_whatsapp_error } from "~/utils/functions/whatsapp_catch_error_repo
 import { useProjectLogStore } from "~/store/project_log_store";
 import { auth_json } from "~/json/json_data/auth";
 
-const drugs_instance = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_URL_DRUGS_API_URL,
-    headers: { "Content-Type": "application/json" },
+const search_instance = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_URL_SEARCH_API_URL,
+    headers: {
+        "Content-Type": "application/json",
+        "domain": "ftfsearchapi.adraproductstudio.com"
+    },
 });
 
 // === Token refresh control ===
@@ -34,7 +37,7 @@ function set_role_based_access_token_update({ role, token }) {
         const newAccessLog = { ...accessLog };
         newAccessLog[role] = {
             ...newAccessLog[role],
-            access_token: token
+            token: token
         };
 
         storeSetAccessLog(newAccessLog);
@@ -71,7 +74,7 @@ function get_role_based_user_data() {
 
 
 // === Request Interceptor ===
-drugs_instance.interceptors.request.use((config) => {
+search_instance.interceptors.request.use((config) => {
     const token = get_role_based_token();
     const role = get_role_from_path();
 
@@ -107,7 +110,7 @@ drugs_instance.interceptors.request.use((config) => {
 });
 
 // === Response Interceptor ===
-drugs_instance.interceptors.response.use(
+search_instance.interceptors.response.use(
     (response) => {
         const status = response?.status;
         if (![0, 200, 201].includes(status)) {
@@ -160,7 +163,7 @@ drugs_instance.interceptors.response.use(
                         failedQueue.push({
                             resolve: (token) => {
                                 originalRequest.headers["Authorization"] = "Bearer " + token;
-                                resolve(drugs_instance(originalRequest));
+                                resolve(search_instance(originalRequest));
                             },
                             reject: (err) => reject(err),
                         });
@@ -173,11 +176,11 @@ drugs_instance.interceptors.response.use(
                     // Refresh logic here
                     const newToken = await handle_refresh_token(role);
                     if (newToken)
-                        set_role_based_access_token_update({ role, token: newToken });
+                        set_role_based_access_token_update({ role: "user", token: newToken });
 
                     processQueue(null, newToken);
                     originalRequest.headers["Authorization"] = "Bearer " + newToken;
-                    return drugs_instance(originalRequest);
+                    return search_instance(originalRequest);
                 } catch (err) {
                     processQueue(err, null);
                     return Promise.reject(err);
@@ -213,4 +216,4 @@ drugs_instance.interceptors.response.use(
     }
 );
 
-export default drugs_instance;
+export default search_instance;

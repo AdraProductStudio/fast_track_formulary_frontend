@@ -13,7 +13,6 @@ const loadCookieState = () => {
       cookie = cookie ? decryptData(cookie) : {};
 
       if (process.env.NEXT_PUBLIC_URL_APP_ENV === "local") {
-        console.log("Enabled Chatbot in [Professional, Employer]: ", process.env.NEXT_PUBLIC_URL_SHOW_CHATBOT);
         console.log("Whatsapp Error Reporter: ", process.env.NEXT_PUBLIC_URL_ENABLE_WHATSAPP_ERROR_REPORTER);
         console.log("")
         console.log("")

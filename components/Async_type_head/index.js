@@ -1,68 +1,50 @@
 "use client";
 
 import Icons from "~/public/icons";
-import { useCallback, useState } from "react";
 import AsyncTypeHead from "~/components/Inputs/Asynctypeahead";
+import { handle_Search_autocomplete_func } from "~/services/endpoint/durgs";
 
 export function AsyncSearchComponent({
-  className = "", placeholder = "", value = "",
-  setState = () => { }, onClick = () => { }, clear_search = () => { }
+  placeholder = "", state = {}, ref,
+  setState = () => { }, onClick = () => { }
 }) {
-  const [options, setOptions] = useState([
-    { id: 1, name: "Apple", category: "Fruit", season: "Winter" },
-    { id: 2, name: "Apricot", category: "Fruit", season: "Summer" },
-    { id: 3, name: "bannana", category: "Nut", season: "All year" },
-  ]);
 
-  const searchFun = useCallback(() => {
-    if (typeof onClick === "function") onClick(value[0]?.name);
-  }, [value]);
-
-  const handleSearchEnter = (event) => {
-    if (event.code === "Enter") searchFun();
+  function searchFun(selected) {
+    onClick(selected?.[0] || {})
+    setState(prev => ({ ...prev, selected_search_text: selected }));
   };
 
-  const handleSearch = async (query) => {
-    const res = await fetch(`/api/search?q=${query}`);
-    const data = await res.json();
 
-    setOptions(data);
+  const handleSearch = (query) => {
+    handle_Search_autocomplete_func({ value: query, setState })
   };
 
   return (
     <div className="position-relative w-100">
       <AsyncTypeHead
-        id="async-search-with-subtitle"
-        labelKey="name"
+        id="med_search_async_typehead"
         minLength={1}
-        selected={value}
+        selected={state?.selected_search_text ?? []}
+        options={state?.search_text_options ?? []}
         onSearch={handleSearch}
-        options={options}
-        onKeyDown={handleSearchEnter}
         placeholder={placeholder}
+        change={searchFun}
+        ref={ref}
         renderMenuItemChildren={(option) => (
-          <div>
-            <div className="fw-semibold">{option.name}</div>
-            <small className="text-muted">
-              {option.category} • {option.season}
+          <div className="pb-2 border-bottom">
+            <h6 className="word_break_all mb-1">
+              {option.formularyName}
+            </h6>
+            <small className="text-muted word_break">
+              {option.label}
             </small>
           </div>
         )}
-        change={(selected) => setState("search_text", selected)}
       />
 
-      {value?.length > 0 ?
-        <span
-          className={`${true ? "cursor-pointer" : "pe-none"} search_end_icon`}
-          onClick={clear_search}
-        >
-          {Icons.search_cancel_icon}
-        </span>
-        :
-        <span className="search_end_icon" onClick={searchFun}>
-          {Icons.search_icon}
-        </span>
-      }
+      <span className="search_end_icon">
+        {Icons.search_icon}
+      </span>
     </div>
   );
 }

@@ -514,3 +514,14 @@ input::placeholder {
 .med_suggestion_list_card .medical_condition_name p {
     color: #312C85;
 }
+
+.med_suggestion_list_card_tier{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 14px;
+    padding: .3rem 1rem;
+    border-bottom-left-radius: 12px;
+    color: #ffffff;
+    background-color: var(--brand-color);
+}

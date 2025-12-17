@@ -1,15 +1,16 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 
-const AsyncTypeHead = ({
-  placeholder, change, renderMenuItemChildren,
-  options, onSearch, onKeyDown,
-  minLength, selected
-}) => {
+const AsyncTypeHead = forwardRef(({
+  placeholder = "", change = () => { }, renderMenuItemChildren,
+  options = [], onSearch = () => { }, minLength = 1, selected = [],
+  inputValue = "as", onInputChange = () => { }, id
+}, ref) => {
+
   return (
     <AsyncTypeahead
-      id="async-search-with-subtitle"
-      labelKey="name"
+      id={id}
+      ref={ref}
       minLength={minLength}
       onSearch={onSearch}
       options={options}
@@ -17,9 +18,10 @@ const AsyncTypeHead = ({
       placeholder={placeholder}
       renderMenuItemChildren={renderMenuItemChildren}
       onChange={change}
-      onKeyDown={onKeyDown}
+      inputValue={inputValue}
+      onInputChange={onInputChange}
     />
   );
-};
+});
 
 export default AsyncTypeHead;
