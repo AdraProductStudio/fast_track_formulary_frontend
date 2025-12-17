@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ButtonComponent from "~/components/Button/Button";
 import { SearchComponent } from "~/components/Search";
+import {AsyncSearchComponent} from "~/components/Async_type_head"
 import Icons from "~/public/icons";
 import { encryptData } from "~/utils/crypto";
 import show_toast from "~/utils/functions/toast";
@@ -22,7 +23,7 @@ export default function SearchMedicine() {
     const [data, setData] = useState({})
 
     function setDataFun(key, value) { setData(prev => ({ ...prev, [key]: value })) }
-    function clear_search_fun() { setData(prev => ({ ...prev, search_text: "" })) }
+    function clear_search_fun() { setData(prev => ({ ...prev, search_text: [] })) }
 
     function handle_suggestion_search(suggestion) {
         setDataFun('search_text', suggestion.target.innerText)
@@ -35,8 +36,7 @@ export default function SearchMedicine() {
             show_toast({ type: 'error', message: errors.join(", ") });
             return;
         }
-
-        router.push(`/${encryptData({ search_text: data?.search_text || "" })}`)
+        router.push(`/${encryptData({ search_text: data?.search_text || [] })}`)
     }
 
     return (
@@ -49,10 +49,10 @@ export default function SearchMedicine() {
                     </div>
 
                     <div className="py-3 text-center">
-                        <SearchComponent
+                        <AsyncSearchComponent
                             className="med_search_input"
                             placeholder="Enter medication name, insurance, and formulary..."
-                            value={data?.search_text || ""}
+                            value={data?.search_text || []}
                             setState={setDataFun}
                             clear_search={clear_search_fun}
                             onClick={searchFun}
