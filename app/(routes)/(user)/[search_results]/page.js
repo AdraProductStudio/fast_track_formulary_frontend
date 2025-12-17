@@ -19,7 +19,6 @@ export default function searchDetails({ params }) {
     const [data, setData] = React.useState({})
 
     useEffect(() => {
-        console.log("decrypted_data", decrypted_data)
         setData(decrypted_data)
 
         if (!search_results || !decrypted_data)

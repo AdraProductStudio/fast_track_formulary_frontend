@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ButtonComponent from "~/components/Button/Button";
-import { SearchComponent } from "~/components/Search";
 import {AsyncSearchComponent} from "~/components/Async_type_head"
 import Icons from "~/public/icons";
 import { encryptData } from "~/utils/crypto";

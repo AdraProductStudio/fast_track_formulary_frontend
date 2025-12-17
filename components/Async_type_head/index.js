@@ -5,12 +5,8 @@ import { useCallback, useState } from "react";
 import AsyncTypeHead from "~/components/Inputs/Asynctypeahead";
 
 export function AsyncSearchComponent({
-  className = "",
-  placeholder = "",
-  value = "",
-  setState = () => {},
-  onClick = () => {},
-  clear_search = () => {},
+  className = "", placeholder = "", value = "",
+  setState = () => { }, onClick = () => { }, clear_search = () => { }
 }) {
   const [options, setOptions] = useState([
     { id: 1, name: "Apple", category: "Fruit", season: "Winter" },
@@ -55,18 +51,18 @@ export function AsyncSearchComponent({
         change={(selected) => setState("search_text", selected)}
       />
 
-      {value?.length > 0? (
+      {value?.length > 0 ?
         <span
           className={`${true ? "cursor-pointer" : "pe-none"} search_end_icon`}
           onClick={clear_search}
         >
           {Icons.search_cancel_icon}
         </span>
-      ) : (
+        :
         <span className="search_end_icon" onClick={searchFun}>
           {Icons.search_icon}
         </span>
-      )}
+      }
     </div>
   );
 }

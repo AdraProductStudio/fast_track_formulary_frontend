@@ -49,7 +49,7 @@ export async function handleLogin(props) {
 
                 props.set_access_log_cookie(signin_user_data);
             }
-            props.router.push("/user")
+            // props.router.push("/user")
         }
     } catch (error) {
         console.warn(error?.message || "Login failed")

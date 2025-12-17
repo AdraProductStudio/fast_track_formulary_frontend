@@ -2,14 +2,9 @@ import React from "react";
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 
 const AsyncTypeHead = ({
-  placeholder,
-  change,
-  renderMenuItemChildren,
-  options,
-  onSearch,
-  onKeyDown,
-  minLength,
-  selected
+  placeholder, change, renderMenuItemChildren,
+  options, onSearch, onKeyDown,
+  minLength, selected
 }) => {
   return (
     <AsyncTypeahead
