@@ -11,8 +11,12 @@ export async function handle_Search_autocomplete_func(props) {
     try {
         const { data } = await search_instance.post(`auto_complete`, { search_text: props?.value || "" });
 
-        if (data.error_code === 200)
-            props.setState(prev => ({ ...prev, search_text_options: data?.data || [] }));
+        if (data.error_code === 200) {
+            let options = (data?.data || []).filter(item => item.type === "drug");
+            
+            props.setState(prev => ({ ...prev, search_text_options: options }));
+        }
+
         else {
             props.setState(prev => ({ ...prev, search_text_options: [] }));
             console.warn(data?.message || "Something went wrong.")

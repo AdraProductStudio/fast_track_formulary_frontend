@@ -3,6 +3,7 @@
 import Icons from "~/public/icons";
 import AsyncTypeHead from "~/components/Inputs/Asynctypeahead";
 import { handle_Search_autocomplete_func } from "~/services/endpoint/durgs";
+import SpinnerComponent from "../Spinner/Spinner";
 
 export function AsyncSearchComponent({
   placeholder = "", state = {}, ref,
@@ -43,7 +44,11 @@ export function AsyncSearchComponent({
       />
 
       <span className="search_end_icon">
-        {Icons.search_icon}
+        {state?.spinner ?
+          <SpinnerComponent className="text-primary me-2 mt-1" />
+          :
+          Icons.search_icon
+        }
       </span>
     </div>
   );

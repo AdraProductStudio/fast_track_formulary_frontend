@@ -148,8 +148,8 @@ export default function searchDetails({ params }) {
                                                                     <div className="card-body">
                                                                         <p className="mb-3"> {medication?.drugName || ""}</p>
                                                                         <div className="my-3 d-flex flex-wrap gap-2">
-                                                                            <span className="heading_tire_primary_badge">Tier {medication?.tierLevel || ""}</span>
-                                                                            <span className="heading_tire_primary_badge">{medication?.drugTier || ""}</span>
+                                                                            {medication?.tierLevel && <span className="heading_tire_primary_badge">Tier {medication?.tierLevel || ""}</span>}
+                                                                            {medication?.drugTier && <span className="heading_tire_primary_badge">{medication?.drugTier || ""}</span>}
                                                                         </div>
 
                                                                         <div className="border-bottom mt-4">
@@ -222,15 +222,13 @@ export default function searchDetails({ params }) {
                                     {data?.data?.primary?.results?.map((medication, index) => (
                                         <div className="col-12 col-md-6 col-xxl-3 p-2" key={index} onClick={() => selected_primary_medication(medication?.drugId || "")}>
                                             <div className="card custom_card_shadow h-100 med_suggestion_list_card">
-                                                <div className="med_suggestion_list_card_tier">
-                                                    Tier {medication?.tierLevel || "N/A"}
-                                                </div>
+                                                {medication?.tierLevel && (<div className="med_suggestion_list_card_tier">  Tier {medication?.tierLevel || "N/A"} </div>)}
 
-                                                <div className="card-header border-0 bg-transparent pt-3 mt-4">
+                                                <div className={`card-header border-0 bg-transparent pt-3 ${medication?.tierLevel ? "mt-4" : ""}`}>
                                                     <p className="mb-2"> {medication?.drugName || ""}</p>
                                                     <p className="para_three mb-2">{medication?.formularyName || ""}</p>
                                                     <div className="border-bottom">
-                                                        <p className="para_three mb-0">Drug ID: {medication?.drugId || ""}</p>
+                                                        <p className="para_three">Drug ID: {medication?.drugId || ""}</p>
                                                     </div>
 
                                                 </div>
@@ -267,11 +265,13 @@ export default function searchDetails({ params }) {
                                                     </div>
                                                 </div>
 
-                                                <div className="card-footer border-0 bg-transparent border-top py-3">
-                                                    <div className="custom_card_success">
-                                                        {medication?.drugTier || "N/A"}
+                                                {medication?.drugTier && (
+                                                    <div className="card-footer border-0 bg-transparent border-top py-3">
+                                                        <div className="custom_card_success">
+                                                            {medication?.drugTier || "N/A"}
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                )}
                                             </div>
                                         </div>
                                     ))}
