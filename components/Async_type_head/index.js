@@ -33,10 +33,10 @@ export function AsyncSearchComponent({
         renderMenuItemChildren={(option) => (
           <div className="pb-2 border-bottom">
             <h6 className="word_break_all mb-1">
-              {option.formularyName}
+              {option.label}
             </h6>
             <small className="text-muted word_break">
-              {option.label}
+              {option.formularyName}
             </small>
           </div>
         )}
