@@ -51,15 +51,14 @@ export default function searchDetails({ params }) {
             <div className="h-100 med_search_result">
                 <div className="card med_search_result_card custom_card_shadow">
                     <div className="card-header border-0 bg-transparent pt-3">
-                        <ButtonComponent className="btn-transparent ps-0" onClick={() => selected_primary_medication(null)}>
+                        <ButtonComponent className="btn-transparent ps-0 d-flex align-items-center" onClick={() => selected_primary_medication(null)}>
                             <span className="pe-2">{Icons.left_arrow_white}</span>
                             Back to search
                         </ButtonComponent>
 
-                        <div className="ps-2 pt-2">
+                        <div className="ps-2 pt-2 bg-white w-100">
                             <h5 className="mb-3">
                                 {data?.selected_primary_drug_data?.drugName || ""}
-                                <span className="heading_tire_primary_badge ms-3">Tier {data?.selected_primary_drug_data?.tierLevel || ""}</span>
                             </h5>
                             <p className="para_three mb-lg-0">{data?.selected_primary_drug_data?.formularyName || ""}</p>
                         </div>
@@ -88,11 +87,13 @@ export default function searchDetails({ params }) {
                                                             </tr>
                                                             <tr>
                                                                 <td>Tier</td>
-                                                                <td className="text-end">Tier {data?.selected_primary_drug_data?.tierLevel || "N/A"}</td>
+                                                                <td className="text-end">
+                                                                    <span className="heading_tire_primary_badge">Tier {data?.selected_primary_drug_data?.tierLevel || "N/A"}</span>
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Drug tier</td>
-                                                                <td className="text-end">{data?.selected_primary_drug_data?.drugTier || "N/A"}</td>
+                                                                <td className="text-end ">{data?.selected_primary_drug_data?.drugTier || "N/A"}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Medical condition name - 1</td>
@@ -143,16 +144,20 @@ export default function searchDetails({ params }) {
                                                 data?.data?.alternative?.alternativeDrugCount ?
                                                     <div className="d-flex flex-wrap mt-3">
                                                         {data?.data?.alternative?.results?.map((medication, index) => (
-                                                            <div className="col-12 col-xxl-6 p-2" key={index}>
+                                                            <div className="col-12 col-xxl-6 py-2 p-xxl-2" key={index}>
                                                                 <div className="card custom_card_shadow h-100">
                                                                     <div className="card-body">
-                                                                        <p className="mb-3"> {medication?.drugName || ""}</p>
-                                                                        <div className="my-3 d-flex flex-wrap gap-2">
-                                                                            {medication?.tierLevel && <span className="heading_tire_primary_badge">Tier {medication?.tierLevel || ""}</span>}
-                                                                            {medication?.drugTier && <span className="heading_tire_primary_badge">{medication?.drugTier || ""}</span>}
-                                                                        </div>
+                                                                        <p className="mb-2"> {medication?.drugName || ""}</p>
+                                                                        {medication?.tierLevel || medication?.drugTier ? (
+                                                                            <div className="my-3 d-flex flex-wrap gap-2">
+                                                                                {medication?.tierLevel && <span className="heading_tire_primary_badge">Tier {medication?.tierLevel || ""}</span>}
+                                                                                {medication?.drugTier && <span className="heading_tire_primary_badge">{medication?.drugTier || ""}</span>}
+                                                                            </div>
+                                                                        )
+                                                                            :
+                                                                            null}
 
-                                                                        <div className="border-bottom mt-4">
+                                                                        <div className="border-bottom mt-2">
                                                                             <p className="para_three mb-2">{medication?.formularyName || ""}</p>
                                                                         </div>
 

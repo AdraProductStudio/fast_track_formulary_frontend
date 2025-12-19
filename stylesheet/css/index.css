@@ -312,9 +312,8 @@ input::placeholder {
     height: 100%;
     width: 25%;
     z-index: 0;
-    transform: rotate(165deg);
+    transform: rotate(178deg);
 }
-
 
 /************************************************************ Login page *********************************************************/
 
@@ -428,7 +427,7 @@ input::placeholder {
 .heading_tire_primary_badge {
     background-color: var(--brand-color);
     color: #ffffff;
-    font-size: 14px;
+    font-size: 13px;
     padding: .5rem 1rem;
     border-radius: 6px;
 }
@@ -527,4 +526,8 @@ input::placeholder {
     border-bottom-left-radius: 12px;
     color: #ffffff;
     background-color: var(--brand-color);
+}
+
+.med_search_input input {
+    scroll-margin-top: 2rem;
 }
