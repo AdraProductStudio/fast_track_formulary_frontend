@@ -523,7 +523,7 @@ input::placeholder {
     right: 0px;
     font-size: 14px;
     padding: .3rem 1rem;
-    border-bottom-left-radius: 12px;
+    border-radius: 0 15px 0 12px;
     color: #ffffff;
     background-color: var(--brand-color);
 }
