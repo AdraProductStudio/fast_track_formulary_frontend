@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useRef, useState, useCallback, useEffect } from "react";
 import { AsyncSearchComponent } from "~/components/Async_type_head";
+import ButtonComponent from "~/components/Button/Button";
 import Icons from "~/public/icons";
 import { handle_Search_autocomplete_func } from "~/services/endpoint/durgs";
 import { encryptData } from "~/utils/crypto";
@@ -74,28 +75,36 @@ export default function SearchMedicine() {
         <div className="h-100 med_search_page">
             <div className="card custom_card_shadow">
                 <div className="card-body med_search_page_content">
-                    <div className="text-center">
-                        <h5 className="title_one">MedSearch</h5>
-                        <p className="para_three">
-                            Find cost-effective medication alternatives
-                        </p>
-                    </div>
+                    <h5 className="title_one">MedSearch</h5>
+                    <p className="para_three">
+                        Find cost-effective medication alternatives
+                    </p>
 
-                    <div className="py-3 text-center" tabIndex={0} onFocus={handleFocus} onBlur={handleBlur}>
+                    <div className="py-3" tabIndex={0} onFocus={handleFocus} onBlur={handleBlur}>
                         <AsyncSearchComponent
                             ref={typeaheadRef}
                             className="med_search_input"
-                            placeholder="Enter medication name..."
+                            placeholder="Enter Drug or Formulary Name"
                             state={data}
                             setState={setData}
                             onClick={searchFun}
                         />
+
+                        <div className="para_three mb-2">
+                            Selected Combination
+                            <hr className="w-75 taper_hr ms-2 text-primary align-middle" />
+                        </div>
+
+                        <ButtonComponent className="btn_brand_color w-100">
+                            Search Medication
+                        </ButtonComponent>
+
                     </div>
 
                     <div className="med_wuick_search mt-4">
                         <div className="para_three mb-2">
                             Quick Searches
-                            <hr className="w-25 taper_hr ms-2 text-primary align-middle" />
+                            <hr className="w-75 taper_hr ms-2 text-primary align-middle" />
                         </div>
 
                         <div className="search_suggestions">

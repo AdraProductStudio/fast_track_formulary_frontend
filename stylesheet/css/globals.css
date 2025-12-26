@@ -7,7 +7,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --brand-color: #2567E8;
+  --brand-color: linear-gradient(91deg, #2567E8 -2.81%, #1A50BA 97.39%);
   --mandatory-color: red;
   --auth-input-label-color: black;
   --login-label-color: #2567E8;
@@ -22,20 +22,6 @@
   --button-font-size: 1rem;
 
   --btn-new-wireframe-bg-color: #2567E8;
-
-  --notification-header-bg-color: #ffebcef9;
-
-  --chatbot-dot-loader-color: #068bf7;
-  --chatbot-brand-bg-color: #1e75bb;
-  --chatbot-brand-text-color: #ffffff;
-
-  --chatbot-bot-message-bg-color: #dff1ff;
-  --chatbot-bot-message-text-color: black;
-
-  --chatbot-user-message-bg-color: #f2f2f2;
-  --chatbot-user-message-text-color: black;
-
-  --professional-learning-header-bg-color: #2567E8;
 }
 
 body {
@@ -90,9 +76,11 @@ select:-webkit-autofill:focus {
 }
 
 .btn_brand_color {
-  background-color: var(--brand-color) !important;
+  background: var(--brand-color) !important;
   border-color: var(--brand-color) !important;
   color: #ffffff !important;
+  border-radius: 11px;
+  padding: .85rem !important;
 }
 
 /* somewhere */
@@ -361,7 +349,6 @@ select:-webkit-autofill:focus {
 
 
 .title_one {
-  color: var(--brand-color);
   font-size: 3rem;
   font-weight: 400;
 }
@@ -393,6 +380,6 @@ select:-webkit-autofill:focus {
   white-space: normal;
 }
 
-.rbt-input-main.form-control{
+.rbt-input-main.form-control {
   padding-right: 3rem !important;
 }

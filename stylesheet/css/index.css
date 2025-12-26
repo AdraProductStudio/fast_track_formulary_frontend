@@ -257,32 +257,38 @@ input::placeholder {
 .main_layout_resolution {
     height: 100%;
     width: 100%;
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
+    background: linear-gradient(0deg, #B7C8FF, #ffffff 100%);
 }
 
 .main_layout_resolution::after {
     content: "";
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
-    right: 0;
-    background: url('../../public/image/med_search_layout_bg.png');
-    background-color: #2567E8;
-    height: 350px;
-    z-index: -1;
+
+    background: url('/image/layout_background.png') no-repeat bottom left;
+    background-size: 650px 460px;
+
+    width: 650px;
+    height: 460px;
+
+    z-index: 0;
 }
 
 .main_layout_header_resolution {
-    height: 105px;
-    width: 90%;
+    height: 95px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    background-color: #ffffff;
+    box-shadow: 0 4.99px 31.21px 0 rgba(37, 103, 232, 0.13);
 }
 
 .main_layout_body_resolution {
-    height: calc(100% - 105px);
+    height: calc(100% - 95px);
     padding: 1.5rem auto;
     overflow: auto;
 }
@@ -292,10 +298,10 @@ input::placeholder {
 .med_search_result .med_search_result_card::after {
     content: "";
     position: absolute;
-    top: -25%;
-    right: -4%;
-    background: url('../../public/image/med_search_side_img.png') no-repeat center;
-    background-size: 400px 650px;
+    top: -35%;
+    right: -8%;
+    background: url('../../public/image/top_right_design.png') no-repeat center;
+    background-size: 150px 250px;
     height: 100%;
     width: 25%;
     z-index: 0;
@@ -305,14 +311,13 @@ input::placeholder {
 .med_search_result .med_search_result_card::before {
     content: "";
     position: absolute;
-    bottom: -25%;
-    left: -5%;
-    background: url('../../public/image/med_search_side_img.png') no-repeat center;
-    background-size: 450px 650px;
+    bottom: -35%;
+    left: -8%;
+    background: url('../../public/image/bottom_left_design.png') no-repeat center;
+    background-size: 150px 250px;
     height: 100%;
     width: 25%;
     z-index: 0;
-    transform: rotate(178deg);
 }
 
 /************************************************************ Login page *********************************************************/
@@ -368,12 +373,9 @@ input::placeholder {
 .taper_hr {
     display: inline-block;
     height: 2px;
+    width: 100%;
     border: none;
-    background: linear-gradient(to right,
-            #0d6efd 0%,
-            #0d6efd 60%,
-            rgba(13, 110, 253, 0.4) 85%,
-            rgba(13, 110, 253, 0) 100%);
+    background: 1px linear-gradient(90deg, #5C93FF 0%, #FFF 100%);
 }
 
 .search_suggestions {
@@ -382,13 +384,8 @@ input::placeholder {
 }
 
 .taper_border_right {
-    border-right: 2px solid transparent;
     height: 100%;
-    border-image: linear-gradient(to bottom,
-            #0d6dfdd8 0%,
-            #0d6dfd6c 50%,
-            rgba(13, 110, 253, 0.4) 75%,
-            rgba(13, 110, 253, 0) 100%) 1;
+    border: 1px linear-gradient(90deg, #5C93FF 0%, #FFF 100%);
 }
 
 

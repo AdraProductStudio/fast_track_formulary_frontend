@@ -98,11 +98,7 @@
     .med_search_page .card .card-body {
         width: calc(100% - 10%);
     }
-
-    .med_search_page_content {
-        background-color: #ffffff38;
-        z-index: 10;
-    }
+ 
 
     .med_search_page .card::after,
     .med_search_result .med_search_result_card::after {
