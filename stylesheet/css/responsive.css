@@ -18,15 +18,11 @@
 /************************************************ min-width: 1400px *********************************************************/
 @media (min-width: 1400px) {
     .med_search_page .card .card-body {
-        width: 650px;
+        width: 700px;
     }
 }
 
 @media (min-width: 1200px) {
-    .med_search_page .card .card-body {
-        width: 550px;
-    }
-
     .main_layout_resolution::after {
         content: "";
         position: absolute;
@@ -74,7 +70,11 @@
 
 
 /************************************************ (min-width: 1200px) and (max-width: 1400px) *********************************************************/
-@media (min-width: 1200px) and (max-width: 1400px) {}
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .med_search_page .card .card-body {
+        width: 550px;
+    }
+}
 
 
 
