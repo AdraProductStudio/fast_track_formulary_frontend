@@ -79,6 +79,7 @@ export default function SearchMedicine() {
     }, []);
 
     function handle_suggestion_search(suggestion) {
+        return
         setData(prev => ({ ...prev, selected_search_text: [{ label: suggestion }] }));
 
         requestAnimationFrame(() => {
