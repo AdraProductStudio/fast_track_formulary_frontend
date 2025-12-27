@@ -13,8 +13,8 @@ import useOnlineStatus from "~/utils/functions/useOnlineStatus";
 export default function MaintananceMode({ children }) {
     const [isMaintananceMode, setIsMaintananceMode] = useState(null);
     const is_online = useOnlineStatus();
-    const username = "project_fast_track_formulary";
-    const password = "Fasttrackformulate@2026";
+    const username = "project_fast_track_formulary_v_1.0";
+    const password = "Fasttrackformulary_v_1.0@2026";
 
     const public_access_token_2ndcareers = btoa(`${username}:${sha256(password)}`);
     const endpoint_access_key = "fast_track_formulary_maintanance_mode_key:APSPvtLimited@2023";

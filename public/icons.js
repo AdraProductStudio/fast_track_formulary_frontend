@@ -50,7 +50,19 @@ const suggestion_arrow = <MdArrowOutward className="text-primary" size={25} />
 const dollars_icon = <LuDollarSign size={26} />
 const plus_icon = <FiPlus size={22} />
 const minus_icon = <FiMinus size={22} />
-const login_user_icon = <CiUser className="text-white" size={30} />
+const login_user_icon = <CiUser className="text-primary" size={25} />
+
+const suggestion_left_side_icon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <g clipPath="url(#clip0_918_11921)">
+        <path d="M6.99968 13.6615L13.6663 6.99479C13.9779 6.68951 14.2258 6.3255 14.3957 5.92381C14.5657 5.52212 14.6543 5.09072 14.6565 4.65456C14.6587 4.2184 14.5745 3.78612 14.4086 3.38274C14.2427 2.97935 13.9985 2.61286 13.69 2.30444C13.3816 1.99602 13.0151 1.7518 12.6117 1.58591C12.2083 1.42001 11.7761 1.33573 11.3399 1.33793C10.9038 1.34014 10.4724 1.42878 10.0707 1.59874C9.66898 1.7687 9.30496 2.01661 8.99968 2.32813L2.33301 8.9948C2.02149 9.30008 1.77359 9.66409 1.60363 10.0658C1.43366 10.4675 1.34502 10.8989 1.34282 11.335C1.34061 11.7712 1.4249 12.2035 1.59079 12.6069C1.75669 13.0102 2.0009 13.3767 2.30932 13.6852C2.61774 13.9936 2.98424 14.2378 3.38762 14.4037C3.79101 14.5696 4.22328 14.6539 4.65944 14.6517C5.0956 14.6495 5.527 14.5608 5.92869 14.3908C6.33038 14.2209 6.69439 13.973 6.99968 13.6615Z" stroke="#99A1AF" strokeWidth="0.798216" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5.66797 5.66992L10.3346 10.3366" stroke="#99A1AF" strokeWidth="0.798216" strokeLinecap="round" strokeLinejoin="round" />
+    </g>
+    <defs>
+        <clipPath id="clip0_918_11921">
+            <rect width="16" height="16" fill="white" />
+        </clipPath>
+    </defs>
+</svg>
 
 
 const Icons = {
@@ -61,6 +73,6 @@ const Icons = {
     job_location_non_sponsored, save_icon, saved_icon, share_icon,
     copy_icon, job_apply_info, delete_icon, upload_icon, close_icon_white,
     filter_icon, remove_icon, suggestion_arrow, left_arrow_white, dollars_icon,
-    plus_icon, minus_icon, login_user_icon
+    plus_icon, minus_icon, login_user_icon, suggestion_left_side_icon
 }
 export default Icons

@@ -9,7 +9,40 @@ import { handle_Search_autocomplete_func } from "~/services/endpoint/durgs";
 import { encryptData } from "~/utils/crypto";
 import drugsSearchValidation from "~/validate/drugs_Search";
 
-const suggestionList = ["Aspirin"];
+const suggestionList = [
+    {
+        drug: "Paracetamol 500 mg",
+        formulary: "Formulary: Anti-Addiction Agents · Gold"
+    },
+    {
+        drug: "Paracetamol 500 mg",
+        formulary: "Formulary: Anti-Addiction Agents · Gold"
+    },
+    {
+        drug: "Paracetamol 500 mg",
+        formulary: "Formulary: Anti-Addiction Agents · Gold"
+    },
+    {
+        drug: "Paracetamol 500 mg",
+        formulary: "Formulary: Anti-Addiction Agents · Gold"
+    },
+    {
+        drug: "Paracetamol 500 mg",
+        formulary: "Formulary: Anti-Addiction Agents · Gold"
+    },
+    {
+        drug: "Paracetamol 500 mg",
+        formulary: "Formulary: Anti-Addiction Agents · Gold"
+    },
+    {
+        drug: "Paracetamol 500 mg",
+        formulary: "Formulary: Anti-Addiction Agents · Gold"
+    },
+    {
+        drug: "Paracetamol 500 mg",
+        formulary: "Formulary: Anti-Addiction Agents · Gold"
+    }
+];
 
 export default function SearchMedicine() {
     const router = useRouter();
@@ -74,50 +107,66 @@ export default function SearchMedicine() {
     return (
         <div className="h-100 med_search_page">
             <div className="card custom_card_shadow">
-                <div className="card-body med_search_page_content">
-                    <h5 className="title_one">MedSearch</h5>
+                <div className="card-body med_search_page_content py-0">
+                    <h5 className="title_two">MedSearch</h5>
                     <p className="para_three">
                         Find cost-effective medication alternatives
                     </p>
 
-                    <div className="py-3" tabIndex={0} onFocus={handleFocus} onBlur={handleBlur}>
-                        <AsyncSearchComponent
-                            ref={typeaheadRef}
-                            className="med_search_input"
-                            placeholder="Enter Drug or Formulary Name"
-                            state={data}
-                            setState={setData}
-                            onClick={searchFun}
-                        />
+                    <div className="mobile_responsive_card" tabIndex={0} onFocus={handleFocus} onBlur={handleBlur}>
+                        <div className="mobile_responsive_card_body">
+                            <h6 className="d-xl-none">Search Area</h6>
+                            <AsyncSearchComponent
+                                ref={typeaheadRef}
+                                placeholder="Enter Drug or Formulary Name"
+                                state={data}
+                                setState={setData}
+                                onClick={searchFun}
+                            />
 
-                        <div className="para_three mb-2">
-                            Selected Combination
-                            <hr className="w-75 taper_hr ms-2 text-primary align-middle" />
+                            {/* <div className="para_three mt-2 d-flex align-items-center">
+                                Selected Combination
+                                <hr className="w-50 taper_hr ms-2 text-primary" />
+                            </div> */}
+
+                            <ButtonComponent className="btn_brand_color w-100 mt-3">
+                                Search Medication
+                            </ButtonComponent>
                         </div>
-
-                        <ButtonComponent className="btn_brand_color w-100">
-                            Search Medication
-                        </ButtonComponent>
-
                     </div>
 
-                    <div className="med_wuick_search mt-4">
-                        <div className="para_three mb-2">
-                            Quick Searches
-                            <hr className="w-75 taper_hr ms-2 text-primary align-middle" />
-                        </div>
+                    <div className="med_wuick_search">
+                        <h6 className="my-4">
+                            Recent Searchs
+                        </h6>
 
-                        <div className="search_suggestions">
-                            {suggestionList.map((suggestion, index) => (
-                                <div key={index} className="d-flex flex-wrap my-2 cursor_pointer" onClick={() => handle_suggestion_search(suggestion)}>
-                                    <div className="col-1 text-center">
-                                        {Icons.suggestion_arrow}
-                                    </div>
-                                    <p className="col ps-2 suggestion_list_content">
-                                        {suggestion}
-                                    </p>
+                        <div className="mobile_responsive_last_search_card">
+                            <div className="mobile_responsive_last_search_card_body">
+                                  <div className="para_three d-flex align-items-center my-2">
+                                    Last Search
+                                    <hr className="w-50 taper_hr ms-2 text-primary" />
                                 </div>
-                            ))}
+                                <div className="search_suggestions px-3">
+                                    {suggestionList.map((suggestion, index) => (
+                                        <div key={index} className="d-flex flex-wrap my-2 cursor_pointer" onClick={() => handle_suggestion_search(suggestion)}>
+                                            <div className="text-center pe-2">
+                                                {Icons.suggestion_left_side_icon}
+                                            </div>
+                                            <div className="col">
+                                                <h5 className="ps-2 suggestion_list_content">
+                                                    {suggestion?.drug}
+                                                </h5>
+                                                <p className="ps-2 suggestion_list_content">
+                                                    {suggestion?.formulary}
+                                                </p>
+                                            </div>
+                                            <div className="col-1 text-center">
+                                                {Icons.suggestion_arrow}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

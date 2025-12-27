@@ -22,34 +22,72 @@
     }
 }
 
-/************************************************ min-width: 992px *********************************************************/
-@media (min-width: 992px) {}
-
-
-
-
-/************************************************ (min-width: 1200px) and (max-width: 1400px) *********************************************************/
-@media (min-width: 1200px) and (max-width: 1400px) {
+@media (min-width: 1200px) {
     .med_search_page .card .card-body {
-        width: 600px;
+        width: 550px;
+    }
+
+    .main_layout_resolution::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: url('/image/layout_background.png') no-repeat bottom left;
+        background-size: 730px 500px;
+        width: 730px;
+        height: 500px;
+        z-index: 0;
+    }
+
+    .med_search_page .card::after,
+    .med_search_result .med_search_result_card::after {
+        content: "";
+        position: absolute;
+        top: -35%;
+        right: -8%;
+        background: url('../../public/image/top_right_design.png') no-repeat center;
+        background-size: 150px 250px;
+        height: 100%;
+        width: 25%;
+        z-index: 0;
+    }
+
+    .med_search_page .card::before,
+    .med_search_result .med_search_result_card::before {
+        content: "";
+        position: absolute;
+        bottom: -35%;
+        left: -8%;
+        background: url('../../public/image/bottom_left_design.png') no-repeat center;
+        background-size: 150px 250px;
+        height: 100%;
+        width: 25%;
+        z-index: 0;
     }
 }
 
 
 
+/************************************************ min-width: 992px *********************************************************/
+@media (min-width: 992px) {}
+
+
+
+/************************************************ (min-width: 1200px) and (max-width: 1400px) *********************************************************/
+@media (min-width: 1200px) and (max-width: 1400px) {}
+
+
+
 /************************************************ max-width: 1200px *********************************************************/
 @media (max-width: 1200px) {
-
-    .med_search_page,
-    .med_search_result {
-        place-items: end;
+    .main_layout_resolution {
+        background: linear-gradient(-45deg, #B7C8FF, #ffffff 100%);
     }
 
     .med_search_page .card {
         width: 100% !important;
-        height: 90% !important;
-        border-top-right-radius: 22px;
-        border-top-left-radius: 22px;
+        height: 100% !important;
+        background-color: transparent;
     }
 
     .med_search_result .med_search_result_card {
@@ -69,8 +107,45 @@
     .med_search_page .card .card-body {
         width: calc(100% - 30%);
     }
-}
 
+    .mobile_responsive_card,
+    .mobile_responsive_last_search_card {
+        width: 100%;
+        height: auto;
+        background-color: #ffffff;
+        min-height: 300px;
+        border-radius: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .mobile_responsive_card_body,
+    .mobile_responsive_last_search_card_body {
+        width: 100%;
+        padding: .5rem 1rem;
+    }
+
+    .mobile_responsive_last_search_card {
+        height: 350px;
+        overflow: hidden;
+    }
+
+    .search_suggestions {
+        height: 300px;
+    }
+
+    .main_layout_header_resolution {
+        background: transparent;
+        box-shadow: none;
+        height: 70px;
+        padding: 0 1rem;
+    }
+
+    .main_layout_body_resolution {
+        height: calc(100% - 70px);
+    }
+}
 
 
 
@@ -96,18 +171,7 @@
 /************************************************ max-width: 786px *********************************************************/
 @media (max-width: 786px) {
     .med_search_page .card .card-body {
-        width: calc(100% - 10%);
-    }
- 
-
-    .med_search_page .card::after,
-    .med_search_result .med_search_result_card::after {
-        background-size: 200px 300px;
-    }
-
-    .med_search_page .card::before,
-    .med_search_result .med_search_result_card::before {
-        background-size: 250px 350px;
+        width: calc(100% - 20%);
     }
 }
 
@@ -116,5 +180,9 @@
 @media (max-width: 586px) {
     .professional_body {
         width: 95%;
+    }
+
+    .med_search_page .card .card-body {
+        width: 100%;
     }
 }

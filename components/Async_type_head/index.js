@@ -7,8 +7,8 @@ import { handle_Search_autocomplete_func } from "~/services/endpoint/durgs";
 import AsyncTypeHead from "../Inputs/Asynctypeahead";
 
 export function AsyncSearchComponent({
-  placeholder = "", state = {},  ref,
-  setState = () => { },  onClick = () => { },
+  placeholder = "", state = {}, ref,
+  setState = () => { }, onClick = () => { },
 }) {
 
   const searchFun = (selected) => {

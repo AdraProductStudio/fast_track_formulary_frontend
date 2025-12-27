@@ -259,22 +259,7 @@ input::placeholder {
     width: 100%;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(0deg, #B7C8FF, #ffffff 100%);
-}
-
-.main_layout_resolution::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    background: url('/image/layout_background.png') no-repeat bottom left;
-    background-size: 650px 460px;
-
-    width: 650px;
-    height: 460px;
-
-    z-index: 0;
+    background: linear-gradient(45deg, #B7C8FF, #ffffff 100%);
 }
 
 .main_layout_header_resolution {
@@ -291,33 +276,6 @@ input::placeholder {
     height: calc(100% - 95px);
     padding: 1.5rem auto;
     overflow: auto;
-}
-
-/************************************************************ Card design *********************************************************/
-.med_search_page .card::after,
-.med_search_result .med_search_result_card::after {
-    content: "";
-    position: absolute;
-    top: -35%;
-    right: -8%;
-    background: url('../../public/image/top_right_design.png') no-repeat center;
-    background-size: 150px 250px;
-    height: 100%;
-    width: 25%;
-    z-index: 0;
-}
-
-.med_search_page .card::before,
-.med_search_result .med_search_result_card::before {
-    content: "";
-    position: absolute;
-    bottom: -35%;
-    left: -8%;
-    background: url('../../public/image/bottom_left_design.png') no-repeat center;
-    background-size: 150px 250px;
-    height: 100%;
-    width: 25%;
-    z-index: 0;
 }
 
 /************************************************************ Login page *********************************************************/
@@ -350,6 +308,10 @@ input::placeholder {
 
 
 /************************************************ Med search page *********************************************************/
+.profile_button {
+    background-color: #ffffff !important;
+}
+
 .med_search_page {
     display: grid;
     place-items: center;
@@ -364,10 +326,7 @@ input::placeholder {
     display: grid;
     place-items: center;
     transition: all .3s ease;
-}
-
-.med_search_input {
-    border: 1px solid #2566e881 !important;
+    z-index: 1;
 }
 
 .taper_hr {
@@ -379,7 +338,7 @@ input::placeholder {
 }
 
 .search_suggestions {
-    height: 140px;
+    height: 180px;
     overflow: auto;
 }
 
@@ -408,6 +367,7 @@ input::placeholder {
     position: relative;
     overflow: hidden;
     transition: all .3s ease;
+    z-index: 1;
 }
 
 .med_details_page_content {
@@ -492,6 +452,7 @@ input::placeholder {
 /************************************************ med suggesstion list *********************************************************/
 .med_suggestion_list_card {
     cursor: pointer;
+    z-index: 1;
 }
 
 .med_suggestion_list_card .req_content h6 {
@@ -525,6 +486,8 @@ input::placeholder {
     background-color: var(--brand-color);
 }
 
-.med_search_input input {
+.rbt-input-main {
     scroll-margin-top: 2rem;
+    border: 1px solid #2567E8 !important;
+    border-radius: 22px !important;
 }

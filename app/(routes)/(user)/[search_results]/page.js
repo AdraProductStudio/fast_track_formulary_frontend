@@ -209,7 +209,7 @@ export default function searchDetails({ params }) {
             :
             <div className="h-100 med_search_result">
                 <div className="card med_search_result_card custom_card_shadow">
-                    <div className="card-header border-0 bg-transparent pt-3 border-bottom">
+                    <div className="card-header border-0 bg-transparent pt-3">
                         <ButtonComponent className="btn-transparent ps-0" onClick={() => router.back()}>
                             <span className="pe-2">{Icons.left_arrow_white}</span>
                             Back to search
