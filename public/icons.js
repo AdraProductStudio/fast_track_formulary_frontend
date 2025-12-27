@@ -27,6 +27,8 @@ const menuIcon = <MdOutlineMenuOpen size={25} />
 const notificationIcon = <IoNotificationsOutline size={23} />
 const right_arrow_white = <IoArrowForwardSharp size={23} />
 const left_arrow_white = <IoArrowBack size={23} />
+const left_arrow_primary = <IoArrowBack size={23} className="text-primary" />
+
 const down_arrow_icon = <MdOutlineKeyboardArrowDown size={25} />
 const search_icon_gray = <IoMdSearch size={26} className="text-secondary" />
 const search_icon = <IoMdSearch size={26} className="brand_color" />
@@ -73,6 +75,7 @@ const Icons = {
     job_location_non_sponsored, save_icon, saved_icon, share_icon,
     copy_icon, job_apply_info, delete_icon, upload_icon, close_icon_white,
     filter_icon, remove_icon, suggestion_arrow, left_arrow_white, dollars_icon,
-    plus_icon, minus_icon, login_user_icon, suggestion_left_side_icon
+    plus_icon, minus_icon, login_user_icon, suggestion_left_side_icon,
+    left_arrow_primary
 }
 export default Icons

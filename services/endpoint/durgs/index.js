@@ -9,7 +9,7 @@ import drugsSearchValidation from "~/validate/drugs_Search";
 export async function handle_Search_autocomplete_func(props) {
     props.setState(prev => ({ ...prev, spinner: true, search_text: props?.value || "" }));
     try {
-        const { data } = await search_instance.post(`auto_complete`, { search_text: props?.value || "", res_size: 1000 });
+        const { data } = await search_instance.post(`auto_complete`, { search_text: props?.value || "", res_size: 100 });
 
         if (data.error_code === 200) {
             let options = (data?.data || [])
@@ -48,8 +48,8 @@ export async function handle_Search_drugs_func(props) {
         const { data } = await search_instance.post(`search`, {
             formulary_id: search_data?.formularyId || "",
             search_text: search_data?.label || "",
-            primary_size: 1000,
-            alternative_size: 1000,
+            primary_size: 100,
+            alternative_size: 100,
         });
 
         if (data.error_code === 200) {

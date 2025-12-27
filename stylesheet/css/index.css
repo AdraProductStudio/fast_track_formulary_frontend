@@ -259,7 +259,7 @@ input::placeholder {
     width: 100%;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(45deg, #B7C8FF, #ffffff 100%);
+    background: linear-gradient(0deg, #B7C8FF, #ffffff 100%);
 }
 
 .main_layout_header_resolution {
@@ -334,7 +334,7 @@ input::placeholder {
     height: 2px;
     width: 100%;
     border: none;
-    background: 1px linear-gradient(90deg, #5C93FF 0%, #FFF 100%);
+    background: linear-gradient(90deg, #5C93FF 0%, #FFF 100%);
 }
 
 .search_suggestions {
@@ -382,7 +382,7 @@ input::placeholder {
 }
 
 .heading_tire_primary_badge {
-    background-color: var(--brand-color);
+    background: var(--brand-color);
     color: #ffffff;
     font-size: 13px;
     padding: .5rem 1rem;
@@ -483,7 +483,7 @@ input::placeholder {
     padding: .3rem 1rem;
     border-radius: 0 15px 0 12px;
     color: #ffffff;
-    background-color: var(--brand-color);
+    background: var(--brand-color);
 }
 
 .rbt-input-main {

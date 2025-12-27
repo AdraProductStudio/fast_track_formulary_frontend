@@ -124,10 +124,10 @@ export default function SearchMedicine() {
                                 onClick={searchFun}
                             />
 
-                            {/* <div className="para_three mt-2 d-flex align-items-center">
+                            <div className="para_three mt-2 d-flex align-items-center">
                                 Selected Combination
                                 <hr className="w-50 taper_hr ms-2 text-primary" />
-                            </div> */}
+                            </div>
 
                             <ButtonComponent className="btn_brand_color w-100 mt-3">
                                 Search Medication

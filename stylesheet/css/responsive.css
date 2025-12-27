@@ -81,7 +81,11 @@
 /************************************************ max-width: 1200px *********************************************************/
 @media (max-width: 1200px) {
     .main_layout_resolution {
-        background: linear-gradient(-45deg, #B7C8FF, #ffffff 100%);
+        background: linear-gradient(-145deg, #B7C8FF, #ffffff 100%);
+    }
+
+    .med_search_page {
+        height: 93% !important;
     }
 
     .med_search_page .card {
@@ -144,6 +148,17 @@
 
     .main_layout_body_resolution {
         height: calc(100% - 70px);
+    }
+
+    .med_search_result .med_search_result_card {
+        height: 100% !important;
+        width: 100% !important;
+        background-color: transparent !important;
+    }
+
+    .alternate_medications_width>.card {
+        background: transparent;
+        box-shadow: none;
     }
 }
 

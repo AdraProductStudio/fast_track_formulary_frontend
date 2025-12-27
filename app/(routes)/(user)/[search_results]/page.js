@@ -51,12 +51,16 @@ export default function searchDetails({ params }) {
             <div className="h-100 med_search_result">
                 <div className="card med_search_result_card custom_card_shadow">
                     <div className="card-header border-0 bg-transparent pt-3">
-                        <ButtonComponent className="btn-transparent ps-0 d-flex align-items-center" onClick={() => selected_primary_medication(null)}>
-                            <span className="pe-2">{Icons.left_arrow_white}</span>
-                            Back to search
+                        <ButtonComponent className="profile_button d-xl-none" onClick={() => selected_primary_medication(null)}>
+                            {Icons.left_arrow_primary}
                         </ButtonComponent>
 
-                        <div className="ps-2 pt-2 bg-white w-100">
+                        <ButtonComponent className="btn-transparent ps-0 d-none d-xl-flex align-items-center" onClick={() => selected_primary_medication(null)}>
+                            <span className="pe-2">{Icons.left_arrow_white}</span>
+                            <span className="d-none d-xl-block"> Back to search</span>
+                        </ButtonComponent>
+
+                        <div className="ps-2 pt-4 pt-xl-2 w-100">
                             <h5 className="mb-3">
                                 {data?.selected_primary_drug_data?.drugName || ""}
                             </h5>
@@ -68,17 +72,16 @@ export default function searchDetails({ params }) {
                         <div className="med_details_page_content d-flex flex-wrap">
                             <div className="col">
                                 <div className="card h-100 custom_card_shadow">
-                                    <div className="card-body w-100 px-2 px-md-4">
-                                        <h6 className="my-3 text-center">Current medications</h6>
-
-                                        <div className="card border rounded-4 overflow-hidden">
-                                            <div className="card-header border-0 current_medication_left_side_header">
-                                                Summary of coverage requirements
-                                            </div>
+                                    <div className="med_suggestion_list_card_tier">
+                                        Current medications
+                                    </div>
+                                    <div className="card-body w-100 px-2 px-md-4 mt-3">
+                                        <div className="card border-0 overflow-hidden">
                                             {data?.spinner ?
                                                 <AlternativeMedicationTableSkeleton />
                                                 :
                                                 <div className="card-body">
+                                                    <h6 className="brand_color">Coverage Requirements</h6>
                                                     <table className="table current_medication_left_side_table">
                                                         <tbody>
                                                             <tr>
@@ -210,13 +213,18 @@ export default function searchDetails({ params }) {
             <div className="h-100 med_search_result">
                 <div className="card med_search_result_card custom_card_shadow">
                     <div className="card-header border-0 bg-transparent pt-3">
-                        <ButtonComponent className="btn-transparent ps-0" onClick={() => router.back()}>
+                        <ButtonComponent className="profile_button d-xl-none" onClick={() => router.back()}>
+                            {Icons.left_arrow_primary}
+                        </ButtonComponent>
+
+                        <ButtonComponent className="btn-transparent ps-0 d-none d-xl-block" onClick={() => router.back()}>
                             <span className="pe-2">{Icons.left_arrow_white}</span>
                             Back to search
                         </ButtonComponent>
                     </div>
 
                     <div className="card-body w-100">
+                        <h5 className="d-xl-none ps-2">Search results</h5>
                         <div className="med_details_page_content">
                             {data?.spinner ?
                                 <div className="d-flex flex-wrap mt-3">
