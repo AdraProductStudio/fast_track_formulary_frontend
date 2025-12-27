@@ -90,11 +90,11 @@ export default function SearchMedicine() {
         handle_Search_autocomplete_func({ value: suggestion, setState: setData, });
     }
 
-    function searchFun(search_data) {
-        const { errors } = drugsSearchValidation(search_data);
+    function searchFun() {
+        const { errors } = drugsSearchValidation(data?.selected_search_text || {});
         if (Object.keys(errors).length) return;
 
-        router.push(`/${encryptData({ search_text: { formularyId: search_data?.formularyId || "", label: search_data?.label || "", }, })}`);
+        router.push(`/${encryptData({ search_text: { formularyId: data?.selected_search_text?.formularyId || "", label: data?.selected_search_text?.label || "", }, })}`);
     }
 
     // Cleanup on unmount
@@ -122,15 +122,40 @@ export default function SearchMedicine() {
                                 placeholder="Enter Drug or Formulary Name"
                                 state={data}
                                 setState={setData}
-                                onClick={searchFun}
                             />
 
-                            <div className="para_three mt-2 d-flex align-items-center">
-                                Selected Combination
-                                <hr className="w-50 taper_hr ms-2 text-primary" />
-                            </div>
+                            {Object.keys(data?.selected_search_text || {}).length > 0 && (
+                                <>
+                                    <div className="para_three mt-2 d-flex align-items-center">
+                                        Selected Combination
+                                        <hr className="w-50 taper_hr ms-2 text-primary" />
+                                    </div>
 
-                            <ButtonComponent className="btn_brand_color w-100 mt-3">
+                                    <div className="row g-2">
+                                        {Object.entries(data?.selected_search_text || {}).map(([key, value]) => (
+                                            <div className="col-12 col-xl-6" key={key}>
+                                                <div className="selected_combo_card d-flex">
+                                                    <div className="col-11 text-truncate">
+                                                        {key}: {value.label}
+                                                    </div>
+                                                    <div className="col-1">
+                                                        <ButtonComponent className="p-0 border-0 bg-transparent" onClick={() => {
+                                                            let updated_selection = { ...data?.selected_search_text || {} };
+                                                            delete updated_selection[key];
+
+                                                            setData(prev => ({ ...prev, selected_search_text: updated_selection }));
+                                                        }}>
+                                                            {Icons.close_icon}
+                                                        </ButtonComponent>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+
+                            <ButtonComponent className="btn_brand_color w-100 mt-3" onClick={searchFun}>
                                 Search Medication
                             </ButtonComponent>
                         </div>
@@ -143,7 +168,7 @@ export default function SearchMedicine() {
 
                         <div className="mobile_responsive_last_search_card">
                             <div className="mobile_responsive_last_search_card_body">
-                                  <div className="para_three d-flex align-items-center my-2">
+                                <div className="para_three d-flex align-items-center my-2">
                                     Last Search
                                     <hr className="w-50 taper_hr ms-2 text-primary" />
                                 </div>

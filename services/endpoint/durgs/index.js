@@ -7,22 +7,12 @@ import drugsSearchValidation from "~/validate/drugs_Search";
 
 //-----------------------------------------------Search auto complete functions------------------------------------------------------//
 export async function handle_Search_autocomplete_func(props) {
-    props.setState(prev => ({ ...prev, spinner: true, search_text: props?.value || "" }));
+    props.setState(prev => ({ ...prev, spinner: true, search_text: props?.value || "", search_text_options: [] }));
     try {
         const { data } = await search_instance.post(`auto_complete`, { search_text: props?.value || "", res_size: 100 });
 
-        if (data.error_code === 200) {
-            let options = (data?.data || [])
-                .filter(item => item.type === "drug")
-                .map(item => ({ ...item, label: item.label?.replaceAll('-%', '') }))
-
-            props.setState(prev => ({ ...prev, search_text_options: options }));
-        }
-
-        else {
-            props.setState(prev => ({ ...prev, search_text_options: [] }));
-            console.warn(data?.message || "Something went wrong.")
-        }
+        if (data.error_code === 200) props.setState(prev => ({ ...prev, search_text_options: data?.data }));
+        else console.warn(data?.message || "Something went wrong.")
     }
     catch (error) {
         console.warn(error?.message || "Something went wrong.")

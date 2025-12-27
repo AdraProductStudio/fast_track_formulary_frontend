@@ -491,3 +491,13 @@ input::placeholder {
     border: 1px solid #2567E8 !important;
     border-radius: 22px !important;
 }
+
+.selected_combo_card{
+    border: 1px solid #2567E8;
+    color: #2567E8;
+    border-radius: 12px;
+    padding: .5rem 1rem;
+    font-size: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}

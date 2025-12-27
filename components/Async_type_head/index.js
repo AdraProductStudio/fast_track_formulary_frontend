@@ -8,12 +8,18 @@ import AsyncTypeHead from "../Inputs/Asynctypeahead";
 
 export function AsyncSearchComponent({
   placeholder = "", state = {}, ref,
-  setState = () => { }, onClick = () => { },
+  setState = () => { }
 }) {
 
   const searchFun = (selected) => {
-    onClick(selected?.[0] || {});
-    setState(prev => ({ ...prev, selected_search_text: selected }));
+    const selected_search_text = selected?.[0] || {};
+
+    setState(prev => ({
+      ...prev, selected_search_text: {
+        ...(prev?.selected_search_text || {}),
+        [selected_search_text?.type || ""]: selected_search_text
+      }
+    }));
   };
 
   const handleSearch = (query) => {
@@ -25,7 +31,6 @@ export function AsyncSearchComponent({
       <AsyncTypeHead
         id="med_search_async_typehead"
         minLength={1}
-        selected={state?.selected_search_text ?? []}
         options={state?.search_text_options ?? []}
         onSearch={handleSearch}
         placeholder={placeholder}
