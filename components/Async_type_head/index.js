@@ -5,11 +5,21 @@ import SpinnerComponent from "../Spinner/Spinner";
 import Icons from "~/public/icons";
 import { handle_Search_autocomplete_func } from "~/services/endpoint/durgs";
 import AsyncTypeHead from "../Inputs/Asynctypeahead";
+import { auth_json } from "~/json/json_data/auth";
 
-export function AsyncSearchComponent({
-  placeholder = "", state = {}, ref,
-  setState = () => { }
-}) {
+export function AsyncSearchComponent({ state = {}, ref, setState = () => { } }) {
+  const { med_search_dynamic_placeholder_sending_data } = auth_json;
+
+  const selectedKeys = Object.keys(state?.selected_search_text || {});
+  let dynamicConfig = med_search_dynamic_placeholder_sending_data.default;
+
+  if (selectedKeys.length === 1) {
+    const key = selectedKeys[0];
+    dynamicConfig = med_search_dynamic_placeholder_sending_data[key] || med_search_dynamic_placeholder_sending_data.default;
+  }
+
+  const dynamic_placeholder = dynamicConfig.title;
+  const searching_for = dynamicConfig.searching_for;
 
   const searchFun = (selected) => {
     const selected_search_text = selected?.[0] || {};
@@ -23,7 +33,7 @@ export function AsyncSearchComponent({
   };
 
   const handleSearch = (query) => {
-    handle_Search_autocomplete_func({ value: query, setState });
+    handle_Search_autocomplete_func({ params: { search_text: query, searching_for }, setState });
   };
 
   return (
@@ -31,17 +41,24 @@ export function AsyncSearchComponent({
       <AsyncTypeHead
         id="med_search_async_typehead"
         minLength={1}
-        options={state?.search_text_options ?? []}
+        options={state?.search_text_options || []}
         onSearch={handleSearch}
-        placeholder={placeholder}
+        placeholder={dynamic_placeholder}
         change={searchFun}
         ref={ref}
         renderMenuItemChildren={(option) => (
-          <div className="pb-2 border-bottom">
-            <h6 className="word_break_all mb-1">{option.label}</h6>
-            <small className="text-muted word_break">{option.formularyName}</small>
+          <div className="pb-2 border-bottom row">
+            <div className="col-9">
+              <p className="word_break_all mb-1">{option.label}</p>
+            </div>
+            <div className="col text-end">
+              <div className={`${option.type}_search_tag`}>
+                {option.type}
+              </div>
+            </div>
           </div>
         )}
+        disabled={Object.keys(state?.selected_search_text || {})?.length === 2}
       />
       <span className="search_end_icon">
         {state?.spinner ? <SpinnerComponent className="text-primary me-2 mt-1" /> : Icons.search_icon}

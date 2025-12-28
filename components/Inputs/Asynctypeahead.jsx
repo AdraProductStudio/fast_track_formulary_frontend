@@ -4,7 +4,7 @@ import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 const AsyncTypeHead = forwardRef(({
   placeholder = "", change = () => { }, renderMenuItemChildren,
   options = [], onSearch = () => { }, minLength = 1, selected = [],
-  inputValue = "as", onInputChange = () => { }, id
+  inputValue = "as", onInputChange = () => { }, id, disabled = false
 }, ref) => {
 
   return (
@@ -20,6 +20,7 @@ const AsyncTypeHead = forwardRef(({
       onChange={change}
       inputValue={inputValue}
       onInputChange={onInputChange}
+      disabled={disabled}
     />
   );
 });

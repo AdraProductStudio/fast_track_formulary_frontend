@@ -9,7 +9,7 @@ import drugsSearchValidation from "~/validate/drugs_Search";
 export async function handle_Search_autocomplete_func(props) {
     props.setState(prev => ({ ...prev, spinner: true, search_text: props?.value || "", search_text_options: [] }));
     try {
-        const { data } = await search_instance.post(`auto_complete`, { search_text: props?.value || "", res_size: 100 });
+        const { data } = await search_instance.post(`auto_complete`, { ...props.params, res_size: 100 });
 
         if (data.error_code === 200) props.setState(prev => ({ ...prev, search_text_options: data?.data }));
         else console.warn(data?.message || "Something went wrong.")
@@ -25,13 +25,13 @@ export async function handle_Search_autocomplete_func(props) {
 
 //-----------------------------------------------Search drugs functions------------------------------------------------------//
 export async function handle_Search_drugs_func(props) {
-    const search_data = props?.state?.search_text || {};
-    const { errors } = drugsSearchValidation(search_data);
+    const search_data = props?.state?.search_text;
+    // const { errors } = drugsSearchValidation(search_data);
 
-    if (Object.keys(errors).length) {
-        show_toast({ type: 'error', message: errors.join(", ") });
-        return;
-    }
+    // if (Object.keys(errors).length) {
+    //     show_toast({ type: 'error', message: errors.join(", ") });
+    //     return;
+    // }
 
     props.setState(prev => ({ ...prev, spinner: true, data: {} }));
     try {

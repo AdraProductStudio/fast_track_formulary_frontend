@@ -492,7 +492,7 @@ input::placeholder {
     border-radius: 22px !important;
 }
 
-.selected_combo_card{
+.selected_combo_card {
     border: 1px solid #2567E8;
     color: #2567E8;
     border-radius: 12px;
@@ -500,4 +500,24 @@ input::placeholder {
     font-size: 12px;
     flex-wrap: wrap;
     align-items: center;
+}
+
+.drug_search_tag {
+    font-size: 13px;
+    border-radius: 12px;
+    border: 0.599px solid #BEDBFF;
+    background: #DBEAFE;
+    color: #1447E6;
+    display: inline-block;
+    padding: .1rem 1rem;
+}
+
+.formulary_search_tag {
+    font-size: 13px;
+    border-radius: 12px;
+    border: 0.645px solid #E9D4FF;
+    background: #F3E8FF;
+    color: #8200DB;
+    display: inline-block;
+    padding: .1rem 1rem;
 }

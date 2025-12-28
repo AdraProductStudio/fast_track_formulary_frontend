@@ -30,6 +30,22 @@ export const auth_json = {
         { buttonName: "Linkedin", image: "https://devcdn.2ndcareers.com/linkedin.png", callback: "" },
         { buttonName: "Apple", image: "https://devcdn.2ndcareers.com/apple.png", callback: "" }
     ],
+
+    med_search_dynamic_placeholder_sending_data: {
+        drug: {
+            title: "Enter Formulary Name",
+            searching_for: "formulary"
+        },
+        formulary: {
+            title: "Enter Drug Name",
+            searching_for: "drug"
+        },
+        default: {
+            title: "Enter Drug or Formulary Name",
+            searching_for: ""
+        }
+    }
+
 }
 
 export default function useAuthUi({ state = {}, setState = () => { }, keyDownHandler = () => { }, errors = {}, set_errors = () => { } }) {

@@ -3,46 +3,17 @@
 import { useRouter } from "next/navigation";
 import { useRef, useState, useCallback, useEffect } from "react";
 import { AsyncSearchComponent } from "~/components/Async_type_head";
-import ButtonComponent from "~/components/Button/Button";
-import Icons from "~/public/icons";
 import { handle_Search_autocomplete_func } from "~/services/endpoint/durgs";
 import { encryptData } from "~/utils/crypto";
+import ButtonComponent from "~/components/Button/Button";
+import Icons from "~/public/icons";
 import drugsSearchValidation from "~/validate/drugs_Search";
+import show_toast from "~/utils/functions/toast";
 
-const suggestionList = [
-    {
-        drug: "Paracetamol 500 mg",
-        formulary: "Formulary: Anti-Addiction Agents · Gold"
-    },
-    {
-        drug: "Paracetamol 500 mg",
-        formulary: "Formulary: Anti-Addiction Agents · Gold"
-    },
-    {
-        drug: "Paracetamol 500 mg",
-        formulary: "Formulary: Anti-Addiction Agents · Gold"
-    },
-    {
-        drug: "Paracetamol 500 mg",
-        formulary: "Formulary: Anti-Addiction Agents · Gold"
-    },
-    {
-        drug: "Paracetamol 500 mg",
-        formulary: "Formulary: Anti-Addiction Agents · Gold"
-    },
-    {
-        drug: "Paracetamol 500 mg",
-        formulary: "Formulary: Anti-Addiction Agents · Gold"
-    },
-    {
-        drug: "Paracetamol 500 mg",
-        formulary: "Formulary: Anti-Addiction Agents · Gold"
-    },
-    {
-        drug: "Paracetamol 500 mg",
-        formulary: "Formulary: Anti-Addiction Agents · Gold"
-    }
-];
+const suggestionList = Array(8).fill({
+    drug: "Paracetamol 500 mg",
+    formulary: "Formulary: Anti-Addiction Agents · Gold"
+});
 
 export default function SearchMedicine() {
     const router = useRouter();
@@ -92,12 +63,17 @@ export default function SearchMedicine() {
 
     function searchFun() {
         const { errors } = drugsSearchValidation(data?.selected_search_text || {});
-        if (Object.keys(errors).length) return;
+        if (Object.keys(errors).length)
+            return show_toast({ type: 'error', message: errors })
 
-        router.push(`/${encryptData({ search_text: { formularyId: data?.selected_search_text?.formularyId || "", label: data?.selected_search_text?.label || "", }, })}`);
+        router.push(`/${encryptData({
+            search_text: {
+                formularyId: data?.selected_search_text?.['drug']?.formularyId || "",
+                label: data?.selected_search_text?.['drug']?.label || ""
+            }
+        })}`);
     }
 
-    // Cleanup on unmount
     useEffect(() => {
         return () => {
             if (scrollTimeoutRef.current)
@@ -117,12 +93,7 @@ export default function SearchMedicine() {
                     <div className="mobile_responsive_card" tabIndex={0} onFocus={handleFocus} onBlur={handleBlur}>
                         <div className="mobile_responsive_card_body">
                             <h6 className="d-xl-none">Search Area</h6>
-                            <AsyncSearchComponent
-                                ref={typeaheadRef}
-                                placeholder="Enter Drug or Formulary Name"
-                                state={data}
-                                setState={setData}
-                            />
+                            <AsyncSearchComponent ref={typeaheadRef} state={data} setState={setData} />
 
                             {Object.keys(data?.selected_search_text || {}).length > 0 && (
                                 <>
@@ -134,11 +105,12 @@ export default function SearchMedicine() {
                                     <div className="row g-2">
                                         {Object.entries(data?.selected_search_text || {}).map(([key, value]) => (
                                             <div className="col-12 col-xl-6" key={key}>
-                                                <div className="selected_combo_card d-flex">
-                                                    <div className="col-11 text-truncate">
-                                                        {key}: {value.label}
+                                                <div className="selected_combo_card d-flex flex-wrap">
+                                                    <div className="col-10">
+                                                        {key?.toUpperCase()}: {value?.label?.length > 30 ? value?.label?.slice(0, 30) + "…" : value.label}
                                                     </div>
-                                                    <div className="col-1">
+
+                                                    <div className="col text-end">
                                                         <ButtonComponent className="p-0 border-0 bg-transparent" onClick={() => {
                                                             let updated_selection = { ...data?.selected_search_text || {} };
                                                             delete updated_selection[key];
