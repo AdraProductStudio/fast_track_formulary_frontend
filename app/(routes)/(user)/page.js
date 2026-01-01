@@ -21,7 +21,14 @@ export default function SearchMedicine() {
     const [data, setData] = useState({});
     const scrollTimeoutRef = useRef(null);
 
+    const isMobile = useCallback(() => {
+        if (typeof window === "undefined") return false;
+        return window.matchMedia("(max-width: 768px)").matches;
+    }, []);
+
     const scrollToInput = useCallback(() => {
+        if (!isMobile()) return;
+
         const input = typeaheadRef.current?.inputNode || typeaheadRef.current?.getInput?.();
         if (!input) return;
 
