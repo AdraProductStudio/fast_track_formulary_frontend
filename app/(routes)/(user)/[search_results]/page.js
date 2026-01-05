@@ -99,11 +99,11 @@ export default function searchDetails({ params }) {
                                                                 <td className="text-end ">{data?.selected_primary_drug_data?.drugTier || "N/A"}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Medical condition name - 1</td>
+                                                                <td>Class</td>
                                                                 <td className="text-end">{data?.selected_primary_drug_data?.medicalConditionName1 || "N/A"}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Medical condition name - 2</td>
+                                                                <td>Sub Class</td>
                                                                 <td className="text-end">{data?.selected_primary_drug_data?.medicalConditionName2 || "N/A"}</td>
                                                             </tr>
                                                             <tr className="">
