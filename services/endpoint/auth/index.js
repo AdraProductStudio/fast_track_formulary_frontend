@@ -8,7 +8,7 @@ import axios from "axios";
 //-----------------------------------------------Refresh token functions ------------------------------------------------------//
 export async function handle_refresh_token(role) {
     try {
-        let basic_auth_string = btoa(`vedha@adraproductstudio.com:NByJ5+gi7ZuzZra78DlQMi2/W5q3LYiHWQxLeA17Dtg=`);
+        let basic_auth_string = btoa(`shreya@adraproductstudio.com:8u1QHhgLIPNMRaUl7cTh8NFzNA3sHAa95XEzcRI17qo`);
 
         const { data } = await axios.get(process.env.NEXT_PUBLIC_URL_SEARCH_API_URL + "/gettoken", {
             headers: {
