@@ -20,7 +20,7 @@ export default function MaintananceMode({ children }) {
     const endpoint_access_key = "fast_track_formulary_maintanance_mode_key:APSPvtLimited@2023";
     const custom_header_object = { endpoint_access_key: endpoint_access_key, expire_on: Date.now() + 30 * 1000 }
 
-    const { state, setState, set_errors } = useAuthState({ email_id: "shreya@adraproductstudio.com", password: "8u1QHhgLIPNMRaUl7cTh8NFzNA3sHAa95XEzcRI17qo" })
+    const { state, setState, set_errors } = useAuthState({ email_id: "vedha@adraproductstudio.com", password: "NByJ5+gi7ZuzZra78DlQMi2/W5q3LYiHWQxLeA17Dtg=" })
     const { get_access_log_cookie, set_access_log_cookie } = useAccessLogStore();
 
     async function fetchMaintananceStatus() {
