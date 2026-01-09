@@ -19,7 +19,7 @@ const poppins = Poppins({
 
 export const metadata = {
   metadataBase: new URL("https://fasttrackformulary.com"),
-  title: "Fast Track Formulary — The Professional Network",
+  title: "Fast Track Formulary",
   description: "Fast Track Formulary.",
   icons: {
     icon: "/favicon.ico",
@@ -44,7 +44,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@Fast Track Formulary",
-    title: "Fast Track Formulary — The Professional Network",
+    title: "Fast Track Formulary",
     description: "Fast Track Formulary.",
     // images: [Images.infinite_logo],
   },

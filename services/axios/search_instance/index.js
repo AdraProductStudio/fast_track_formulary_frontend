@@ -12,7 +12,7 @@ const search_instance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_URL_SEARCH_API_URL,
     headers: {
         "Content-Type": "application/json",
-        "domain": "ftfsearchapi.adraproductstudio.com"
+        "domain": "ftfsearchapi.fasttrackformulary.com"
     },
 });
 
